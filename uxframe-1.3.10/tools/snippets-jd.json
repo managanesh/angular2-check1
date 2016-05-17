@@ -1,0 +1,26 @@
+{
+
+    "html": {
+
+        "snippets": {
+            "nbsp": "&nbsp;",
+            "bch": "|${child}",
+            "footerlinks": "<a href=\"#\">Home</a> \\| <a href=\"#\">Feedback</a> \\| <a href=\"#\">Help</a> \\| <a href=\"#\">FAQs</a> \\| <a href=\"#\">Training</a>",
+            "footerlegal": "Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"#\">Privacy &amp; Data</a> \\| <a href=\"https://www.deere.com/wps/dcom/en_US/footer/legal.page\">Legal</a>"
+},
+        "abbreviations": {
+            "jd:css": "link:css[href=\"css/uxframe-1.3.10.min.css\"]",
+            "jd:js": "script[src=\"js/uxframe-1.3.10.min.js\"]",
+            "jd:icon": "link:favicon[href=\"img/favicon.ico\"]",
+            "jd:hd": "head>meta[charset=${charset}]+title{${1:Page Title}}+jd:js+jd:css+jd:icon",
+            "jd:html": "!!!+html[lang=${lang} class=\"jd\"]>(jd:hd+body)",
+            "jd:header": "(div.header>(div.wrapper-container>((h1.no-user>a[href=\"#\"]{${2:Main Title}})+div.logo[title=\"John Deere Logo\"]{&nbsp;}))+div.brandbar-top+div.brandbar-bottom)+bch+bch+c{Content}+bch+bch",
+            "jd:header:user": "(.header>(.wrapper-container>((h1>a[href=\"#\"]{Title})+div.logo[title=\"John Deere Logo\"]{&nbsp;}+div#user-info.user-info{Welcome <span onclick=\"toggleUserInfo();\">User</span>}>div#user-settings-nav>ul>(li.user-name{Name}+li.user-title{Title}+(li>a)*4)))+.brandbar-top+.brandbar-bottom)+bch+bch+c{Content}+bch+bch",
+            "jd:footer": "(.wrapper-all-except-footer>(bch+.push))+(.footer>.wrapper-container>(span.footer-links>footerlinks)+(span.footer-legal>footerlegal)+nbsp)",
+            "jd:navtop": ".nav-top>.wrapper-container>ul>((li.home>a{&nbsp;})+(li>a)*4)",
+            "jd:navtop:sub": "li.has-sub-menu>(a{Title}>span{&nbsp;})+ul.sub-menu>(li>a)*4",
+            "jd:navtop:search": "li.search>form[name=\"siteSearchForm\" action=\"#\" method=\"#\"]>input#inputSiteSearch[type=\"text\" title=\"Search For\" value=\"\" onfocus=\"onSiteSearchFocus(this);\" onblur=\"onSiteSearchBlur(this);\"]+div.submit#submitSiteSearch>button.call-to-action[ type=\"submit\" title=\"Go\"]>div"
+
+        }
+    }
+}

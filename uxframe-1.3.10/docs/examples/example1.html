@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="jd ux-site" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Panel Example</title>
+    <link rel="stylesheet" href="../../css/uxframe-1.3.10.min.css" media="all">
+    <script src="../../js/uxframe-1.3.10.min.js"></script>
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+</head>
+<body>
+    <div id="popup-background" onclick="toggleUserInfo();"></div>
+    <div class="wrapper-all-except-footer">
+    <div class="header">
+        <div class="wrapper-container">
+            <h1 class="no-user"><a href="#">Application Title</a></h1>
+            <div class="logo" title="John Deere Logo">&nbsp;</div>
+        </div>
+        <div class="brandbar-top"></div>
+        <div class="brandbar-bottom"></div>
+    </div>
+    <div class="nav-top">
+        <div class="wrapper-container">
+            <ul>
+                <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                <li><a href="#">Customers</a></li>
+                <li class="has-sub-menu">
+                    <a href="#">Inventory<span>&nbsp;</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                    </ul>
+                </li>
+                <li class="selected"><a href="#">Build & Price</a></li>
+                <li class="has-sub-menu">
+                    <a href="#">Order<span>&nbsp;</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Account</a></li>
+                <li class="search">
+                    <form name="siteSearchForm" action="#" method="#">
+                        <div class="input-box">
+                            <input type="text" id="inputSiteSearch"  class="inline-button" title="Search For" value="" />
+                            <div class="input-label">
+                                Search
+                            </div>
+                            <div class="submit" id="submitSiteSearch">
+                                <button type="submit" class="call-to-action" title="Go"></button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper-container">
+        <div class="row">
+            <div class="col-1-6">
+                <div class="nav-left flat">
+                    <ul>
+                        <li><a href="#">Nav item 1</a>
+                            <ul>
+                                <li><a href="#">Nav 1 - 1</a></li>
+                                <li><a href="#">Nav 1 - 2</a></li>
+                                <li><a href="#">Nav 1 - 3</a></li>
+                                <li><a href="#">Nav 1 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li class="selected-parent"><a href="#">Administration</a>
+                            <ul>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Admin</a></li>
+                                <li class="selected"><a href="#">Human Resources</a></li>
+                                <li><a href="#">Learning</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav Item 3</a>
+                            <ul>
+                                <li><a href="#">Nav 3 - 1</a></li>
+                                <li><a href="#">Nav 3 - 2</a></li>
+                                <li><a href="#">Nav 3 - 3</a></li>
+                                <li><a href="#">Nav 3 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav item 4 with some extra info</a>
+                            <ul>
+                                <li><a href="#">Nav 4 - 1</a></li>
+                                <li><a href="#">Nav 4 - 2</a></li>
+                                <li><a href="#">Nav 4 - 3</a></li>
+                                <li><a href="#">Nav 4 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav Item 5</a>
+                            <ul>
+                                <li><a href="#">Nav 5 - 1</a></li>
+                                <li><a href="#">Nav 5 - 2</a></li>
+                                <li><a href="#">Nav 5 - 3</a></li>
+                                <li><a href="#">Nav 5 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav Item 6</a>
+                            <ul>
+                                <li><a href="#">Nav 6 - 1</a></li>
+                                <li><a href="#">Nav 6 - 2</a></li>
+                                <li><a href="#">Nav 6 - 3</a></li>
+                                <li><a href="#">Nav 6 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav item 7</a>
+                            <ul>
+                                <li><a href="#">Nav 7 - 1</a></li>
+                                <li><a href="#">Nav 7 - 2</a></li>
+                                <li><a href="#">Nav 7 - 3</a></li>
+                                <li><a href="#">Nav 7 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav Item 8</a>
+                            <ul>
+                                <li><a href="#">Nav 8 - 1</a></li>
+                                <li><a href="#">Nav 8 - 2</a></li>
+                                <li><a href="#">Nav 8 - 3</a></li>
+                                <li><a href="#">Nav 8 - 4</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Nav Item 9</a>
+                            <ul>
+                                <li><a href="#">Nav 9 - 1</a></li>
+                                <li><a href="#">Nav 9 - 2</a></li>
+                                <li><a href="#">Nav 9 - 3</a></li>
+                                <li><a href="#">Nav 9 - 4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-5-6">
+                <div class="panel">
+                    <h3>Title</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu nisl ornare mi gravida consequat. Aenean bibendum blandit aliquet.  Etiam fermentum neque et libero egestas faucibus. Integer posuere diam non nulla ultrices, nec venenatis lacus mollis. Aenean et dignissim libero, laoreet pharetra ante. Ut blandit convallis metus, eget tristique ex sodales ut. Proin at justo ac nisl sollicitudin fermentum id quis quam. Ut id leo euismod, facilisis ligula vel, porta sapien. In scelerisque nulla id commodo dictum.  In placerat lectus eu sagittis convallis. Duis in elit erat. Sed pretium porttitor neque, non molestie nibh malesuada at. Integer tincidunt metus at leo vehicula, non imperdiet tortor commodo.
+                    </p>
+                    <p class="last">
+                        Nullam vitae finibus augue. Sed enim elit, auctor vitae ligula a, feugiat dapibus magna. Sed scelerisque nibh suscipit, condimentum orci vitae, ullamcorper risus. Mauris bibendum, ipsum a vestibulum elementum, nisl lectus maximus ante, quis auctor risus leo ac augue. Praesent sed venenatis ex, suscipit suscipit nunc. Sed ac dui blandit, facilisis lectus et, tempor nisl. Vestibulum ut diam vel augue pretium tempus et pretium arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut rutrum gravida libero. Suspendisse sed ornare felis. Nam vel eleifend risus. Pellentesque quis erat leo. Donec in feugiat metus. Vestibulum id rhoncus ex. Proin iaculis eget nunc eget dapibus. Vestibulum vehicula vulputate leo nec lobortis.
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-1-4">
+                        <div class="panel">
+                            <span class="large">9</span> items found that match user search
+                        </div>
+                        <div class="panel">
+                            <span class="large">23</span> minutes remaining
+                        </div>
+                    </div>
+                    <div class="col-3-4">
+                        <div class="panel">
+                            <p class="last">
+                            Donec commodo dolor sed ullamcorper tristique. Nam ante tellus, sodales vitae nisi in, bibendum commodo neque. Sed feugiat pellentesque nisl vitae maximus. In facilisis ante vitae tellus faucibus dictum in a nisi. Morbi ac arcu eu augue interdum luctus. Nam auctor gravida vulputate. Maecenas suscipit arcu eu est tincidunt volutpat. Ut rutrum, libero a aliquam venenatis, tellus ligula elementum neque, vel pulvinar magna lacus ac diam. Duis et scelerisque orci. Donec diam ex, porttitor nec volutpat a, iaculis at justo. Nam ut est non odio varius pellentesque.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="push"></div>
+    </div>
+    <div class="footer">
+        <div class="wrapper-container">
+            <span class="footer-links"><a href="#">Home</a> | <a href="#">Feedback</a> | <a href="#">Help</a> | <a href="#">FAQs</a> | <a href="#">Training</a></span>
+            <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#">Privacy &amp; Data</a> | <a href="https://www.deere.com/wps/dcom/en_US/footer/legal.page">Legal</a> </span>
+        </div>
+    </div>
+</body>
+</html>

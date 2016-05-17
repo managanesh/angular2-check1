@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en" class="jd ux-site">
+<head>
+    <!-- Use to emulate IE8 properly for testing -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"> -->
+    <!-- End IE8 emulation tag -->
+    <meta charset="UTF-8">
+    <title>Documentation | UXFrame</title>
+
+    <script src="../js/uxframe-1.3.10.js"></script>
+    <script> 
+// If you wanted to manually bind element
+// $UXF.defaultBinds = false;
+    </script>
+
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <link rel="stylesheet" href="../css/uxframe-1.3.10.min.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="custom.css">
+
+</head>
+<body class='ag'>
+    <!-- <div class="float-alert loading"> -->
+    <!--     <div class="content">Saving Project</div> -->
+    <!-- </div> -->
+    <!-- <div class="float-alert success"> -->
+    <!--     <div class="content">Project Saved</div> -->
+    <!-- </div> -->
+    <div id="popup-background" onclick="toggleUserInfo();"></div>
+    <div id="searchPopupBackground" onclick="toggleSearchDropdown();"></div>
+    <div id="button-popup-background"></div>
+    <div id="modal-dimmer"></div>
+    <div class="wrapper-all-except-footer center-footer">
+        <div class="header no-top-nav">
+            <div class="wrapper-container">
+                <h1><a href="#">UXFrame</a></h1>
+                <div class="logo" title="John Deere Logo">&nbsp;</div>
+                <div class="user-info">Version 1.3.10</div>
+            </div>
+            <div class="brandbar-top"></div>
+            <div class="brandbar-bottom"></div>
+        </div>
+    <div class="wrapper-container">
+        <div class="row">
+            <div class="col-1-6">
+                <div class="nav-left thin-child flat" id="fixed-panel">
+                    <ul>
+                        <li><a href="../index.html">Getting Started</a> </li>
+                        <li id="spy-scroll-parent_link" class="selected-parent"><a href="#">Documentation</a>
+                            <ul id="spy-scroll-list">
+                            </ul>
+                        </li>
+                        <li><a href="libraries.html">Libraries</a></li>
+                        <li><a href="examples.html">Examples</a></li>
+                        <li class="jd-dev-hide"><a href="developers.html">Developer Docs</a></li>
+                    </ul>
+                </div>
+                <div class="panel" id="fixed-spacer"></div>
+            </div>
+            <div class="col-5-6">
+                <h2 id="spy-scroll-parent" class="spied">Documentation</h2>
+                <div class="panel spied" id="First_Things">
+                    <div class="row">
+                        <div class="col-2-3">
+                            <h4>Complete Page</h4>
+                            <p>
+                            If you're starting a new project we start with an empty HTML
+                            document. We recommend the use of HTML5 and CSS3 for new projects.
+                            Additionally, using the <code>.jd</code> class on the <code>&lt;html&gt;</code>
+                            element applies our styles to the entire document. This resets default stying
+                            and applies John Deere Standards to all default HTML elements and may
+                            cause problems if applied to existing pages without some refactoring.
+                            </p>
+<pre class="prettyprint lang-html clear-bottom-margin">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;jd&quot;&gt;
+&lt;head&gt;
+    &lt;script src=&quot;js/uxframe-version.min.js&quot;&gt;&lt;/script&gt;  
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;css/uxframe-version.min.css&quot;&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;img/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
+&lt;/head&gt;
+    ...
+&lt;/html&gt;
+</pre>
+                        </div>
+                        <div class="col-1-3">
+                            <h4>Individual Elements</h4>
+                            <p>
+                            While it is not recommended, it is possible to use individual components
+                            of the John Deere Standards without "taking the dive" and using the
+                            entire setup. The components documented below can be wrapped in a
+                            <code>div</code> with the <code>.jd</code> class applied.
+                            </p>
+<pre class="prettyprint lang-html clear-bottom-margin">
+&lt;div class=&quot;jd&quot;&gt;
+    ... components ...
+&lt;/div&gt;
+</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel spied" id="Layout">
+                    <h3>Layout</h3>
+                    <p>
+                    One of the most important pieces of making a fully functional
+                    website is page layout. Standard HTML provides powerful tools
+                    for laying out and reflowing text. As part of the standads,
+                    we provide a set of tools for using percentage width <code>div</code>
+                    elements to layout a page. We strongly recommend this approach
+                    over other alternatives such as using table elements. Relying
+                    on div structure is in keeping with a modern approach to website design,
+                    and standard across many web frameworks. While other approaches
+                    could feasibly be used, the standards have not been designed with these
+                    in mind, and it is likely there will be unforseen complications.
+                    </p>
+                    <p>
+                    Layout is done with nested divs forming row and column structures.
+                    Each column must be inside a containing row. Content always lives within a column.
+                    Multiple levels of rows and columns can be nested to create
+                    more complex structures. Columns are given a width using fractional
+                    notation. For example <code>.col-1-3</code> creates a column
+                    with 33% width. <code>.col-1</code> is used for 100% width.
+                    Fractions ranging up to sixths are available, always in the most
+                    simplified form. (i.e. <code>2-3</code> not <code>4-6</code>.)
+                    The example below uses colored divs
+                    to illustrate this. (Note that inline height or padding is not
+                    necessary and is used only for demonstration, content and panels will correctly set these styles.)
+                    </p>
+
+                    <pre id="layout-code" class="prettyprint lang-html"></pre>
+
+                    <div id="layout-disp" class="page-show demo">
+                        <div style="margin-bottom: 10px;" class="row">
+                            <div class="col-1-3 demo-block dark"></div> <!-- green -->
+                            <div class="col-1-3 demo-block yellow"></div> <!-- yellow -->
+                            <div class="col-1-3 demo-block red"></div> <!-- red -->
+                        </div>
+                        <div style="margin-bottom: 10px;" class="row">
+                            <div class="col-1-4 demo-block dark"></div>
+                            <div class="col-1-2 demo-block yellow"></div>
+                            <div class="col-1-4 demo-block red"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 red">
+                                <div class="row" style="padding: 10px;">
+                                    <div class="col-1-2 demo-block dark"></div>
+                                    <div class="col-1-2 demo-block yellow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 id="Advanced_Layout">Advanced Layout</h4>
+                    <div class="body"> 
+                        <p>
+                        Shrewd observers will notice additional classes being used to control
+                        margins and padding in certain elements. In the panel section, the class
+                        <code>.clear-panel</code> was mentioned for controlling the bottom
+                        margin of the panel element. Another example is the <code>.last</code>
+                        class on the final paragraph element.
+                        However, most elements including lists and navigational tools
+                        have margins or padding on the bottom and/or right side of the element.
+                        In order to maintain compliance with IE7, we have avoided the use of the
+                        <code>last-child</code> psuedo-selector in our CSS. This means some
+                        spacing elements should be manually cleared. Below is a list of classes
+                        that can be used to modify these elements.
+                        </p>
+                        <dl class="horizontal">
+                            <dt><code>.clear-right</code></dt>
+                            <dd>Clears right padding and right margin on an element.</dd>
+                            <dt><code>.clear-right-margin</code></dt>
+                            <dd>Clears only right margin on an element.</dd>
+                            <dt><code>.clear-bottom</code></dt>
+                            <dd>Clears bottom padding and bottom margin on an element.</dd>
+                            <dt><code>.clear-bottom-margin</code></dt>
+                            <dd>Clears only bottom margin on an element.</dd>
+                            <dt><code>.clear-panel</code></dt>
+                            <dd>Equivalent to <code>clear-bottom-margin</code>.</dd>
+                        </dl>
+                        <p>
+                        An additional tool for placing content is inline layout. The provided
+                        inline classes are frequently used to place input elements or buttons
+                        in a single row. Currently, width of some of these elements
+                        is controlled by inline width styles, but this may be changed
+                        in the future. A few basic examples can be seen below.
+                        </p>
+                        <pre id="advanced1-code" class="prettyprint lang-html" style="height: 300px;"></pre>
+                        <div id="advanced1-disp" class="page-show demo">
+                            <div class="panel">
+                                <div class="layout-inline">
+                                    <div style="width:100%" class="layout-inline-item">
+                                        <div class="input-box">
+                                            <input class="" type="text" />
+                                            <div class="input-label" >
+                                                Model Name, Keyword, Decal #, Publication #
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layout-inline-item">
+                                        <button class="right-align call-to-action">Search</button>
+                                    </div>
+                                    <div class="layout-inline-item">
+                                        <button class="right-align">Advanced Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel clear-panel">
+                                <div class="layout-inline">
+                                    <div class="layout-inline-item">
+                                        <select name="Title" id="title">
+                                            <option selected value='All'>All Categories</option>
+                                            <option value="M">Manuals</option>
+                                            <option value="PC">Parts Catalogs</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div style="width:73%" class="layout-inline-item">
+                                        <div class="input-box">
+                                            <input class="" type="text" value="" />
+                                            <div class="input-label">
+                                                Model Name, Keyword, Decal #, Publication #
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layout-inline-item">
+                                        <button class="call-to-action">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                        A common design pattern is the use of a right-aligned button group at
+                        the top of a page, which usually contains two to three buttons.
+                        This can be done by using the invispanel and inline layout items.
+                        </p>
+                        <pre id="advanced2-code" class="prettyprint lang-html" style="height: 300px;"></pre>
+                        <div id="advanced2-disp" class="page-show demo clear-bottom-margin">
+                            <div class="invispanel">
+                                <div class="layout-inline">
+                                    <div class="layout-inline-item fill"> </div>
+                                    <div class="layout-inline-item">
+                                        <button class="">Exit</button>
+                                    </div>
+                                    <div class="layout-inline-item">
+                                        <div class="dropdown-container button-style">
+                                            <button id="dd1" class="dropdown">Actions</button>
+                                            <!-- <span class="chevron">&nbsp;</span> -->
+                                            <div id="dd1Menu" class="dropdown-menu">
+                                                <ul class="thin-list bulleted">
+                                                    <li><a href="#">Print Form</a></li>
+                                                    <li><a href="#">Reset Fields</a></li>
+                                                    <li><a href="#">Change Language</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="layout-inline-item">
+                                        <button class=" call-to-action">Save and Continue</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel clear-bottom-margin">
+                                <div class="row">
+                                    <div class="col-1-2">
+                                        <div class="input-box clear-bottom-margin">
+                                            <label for="first">First Name</label>
+                                            <input id="first" class="" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-1-2">
+                                        <div class="input-box clear-bottom-margin">
+                                            <label for="add1">Last Name</label>
+                                            <input id="add1" class="" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="Panels" class="panel spied">
+                    <h3>Panels</h3>
+                    <p>
+                    For most application-style pages panels are used to hold page
+                    content. They provide clear distinction between different pieces
+                    of content and aid in creating a straight-forward layout. Panels
+                    are usually placed inside a <code>layout</code> div and contain content.
+                    Panels are used on this page to hold different sections of documentation.
+                    They are placed within a column element.
+                    </p>
+                    <p>
+                    The margin at the bottom of the panel can be cleared by using the
+                    <code>.clear-panel</code> class.
+                    </p>
+                    <pre id="panels-code" class="prettyprint lang-html"></pre>
+
+                    <div id="panels-disp" class="page-show demo">
+                        <div class="row">
+                            <div class="col-1">
+                                <div class="panel">
+                                    <h3>Example Panel</h3>
+                                    <p class="last">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id sapien gravida, cursus turpis a, scelerisque dolor. Praesent accumsan, neque sit amet fermentum pellentesque, nisi neque egestas felis, ut
+                                    suscipit neque felis eu quam. Fusce in lectus ac diam viverra rhoncus.  Vivamus a sem non sem rhoncus posuere.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1-2">
+                                <div class="panel clear-panel">
+                                    <h3>Half Panel</h3>
+                                    <p class="last">
+                                     Curabitur cursus justo quis blandit molestie.  Donec euismod felis vitae neque euismod vulputate.
+                                     Vivamus at nulla non libero accumsan pellentesque.  Nullam et accumsan arcu, sit amet consectetur sapien.
+                                     </p>
+                                </div>
+                            </div>
+                            <div class="col-1-2">
+                                <div class="panel clear-panel">
+                                    <h3>Final Panel</h3>
+                                    <p class="last">
+                                    Sed metus nisi, posuere lacinia scelerisque quis, condimentum posuere magna. Quisque porttitor quam sit amet bibendum egestas. Proin
+                                    imperdiet, est a viverra euismod, justo erat egestas erat, ut volutpat nisl mauris nec ligula.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 id="Specialty_Panels">Specialty Panels</h4>
+                    <div class="body">
+                        <p>
+                        Many applications use large tiles to direct users to important actions or to
+                        display pertinent status information. These tiles can be placed in using the 
+                        standard layout system and can span any number of columns. When these panels
+                        are used as links, the link element should surround the panel, so the 
+                        clickable area includes the entire background of the panel.
+                        </p>
+                        <pre id="specialtypanel-code" style="height: 200px;" class="prettyprint lang-html"></pre>
+                        <div id="specialtypanel-disp" class="clear-bottom page-show demo">
+                            <div class="col-1-3">
+                                <div class="panel icon-panel">
+                                    <div class="icon check"></div>
+                                    <span class="panel-title">Add Second Customer </span>
+                                </div>
+                            </div>
+                            <div class="col-2-3">
+                                <div class="row">
+                                    <div class="col-1-2">
+                                        <div class="panel count-panel">
+                                            <div class="count">9</div>
+                                            <div class="text">
+                                                <div class="main-title">Active Quotes</div>
+                                                <div class="sub-title">2 Expired</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-1-2">
+                                        <a href="">
+                                            <div class="panel count-panel">
+                                                <div class="count">12</div>
+                                                <div class="text">
+                                                    <div class="main-title">Machines Owned</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="panel icon-panel">
+                                    <div class="icon check"></div>
+                                    <span class="panel-title">Add New Machine Configuration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Navigation" class="panel spied">
+                    <h3>Navigation</h3>
+                    <p>
+                    A variety of navigation elements are provided by default. These cover most of the 
+                    common types of page navigation used in modern web pages. In addition to page
+                    navigation, the top nav element can also hold a page search bar, notification icon,
+                    or shopping cart status.
+                    </p>
+                    <h4 id="Top_Nav">Top Navigation and Notifications</h4>
+                    <div class="body">
+                        <p>
+                        The top navigation element goes below the header element. Many
+                        sites will include several main pages, and the top navigation can
+                        be a good way to provide your users with a persistent way of
+                        navigating between them. Top navigation menus can include nested
+                        elements that provide subpages on hover.
+                        </p>
+                        <pre id="navtop-code" class="prettyprint lang-html" ></pre>
+                        <div id="navtop-disp" class="page-show demo" style="height: 160px;">
+                            <div class="nav-top clear-bottom-margin">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home">&nbsp;</a></li>
+                                        <li class="selected"><a>Customers</a></li>
+                                        <li><a>Account</a></li>
+                                        <li class="has-sub-menu">
+                                            <a>Inventory<span>&nbsp;</span></a>
+                                            <ul class="sub-menu">
+                                                <li><a>Sub Menu Item</a></li>
+                                                <li><a>Sub Menu Item</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="search">
+                                            <form name="siteSearchForm" action="#" method="#">
+                                                <div class="input-box">
+                                                    <input type="text" id="inputSiteSearch"  class="inline-button" title="Search For" value="" />
+                                                    <div class="input-label">
+                                                        Search
+                                                    </div>
+                                                    <div class="submit" id="submitSiteSearch">
+                                                        <button type="submit" class="call-to-action" title="Go"></button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                        Simlar to the left hand navigation panel, nested <code>&lt;ul&gt;</code>
+                        elements must be placed <i>inside</i> a parent <code>&lt;li&gt;</code>
+                        element.
+                        </p>
+                        <p>
+                        Finally, it is possible to forgo a search bar entirely and use
+                        the top right of the nav bar to include important information,
+                        frequently price or cart quantity. To facilitate this, we provide
+                        classes specifically for price and cart, although a similar
+                        approach can be used for other information. Note that the
+                        below example shows both options for cart quantity.
+                        </p>
+                        <pre id="navtop3-code" class="prettyprint lang-html" style="height: 250px;"></pre>
+                        <div id="navtop3-disp" class="page-show demo">
+                            <div class="nav-top">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                                        <li class="selected"><a href="#">Customers</a></li>
+                                        <li><a href="#">Build &amp; Price</a></li>
+                                        <li><a href="#">Account</a></li>
+                                        <li class="right-side">
+                                            <div class="price">
+                                                <div class="total">$20.00</div>
+                                                <div class="currency">USD</div>
+                                            </div>
+                                            <div class="cart">
+                                                <div class="cart-icon inner-quantity">9 </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nav-top">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                                        <li><a href="#">Customers</a></li>
+                                        <li class="selected"><a href="#">Build &amp; Price</a></li>
+                                        <li><a href="#">Account</a></li>
+                                        <li class="right-side">
+                                            <div class="price">
+                                                <div class="total">$20.00</div>
+                                                <div class="currency">USD</div>
+                                            </div>
+                                            <div class="cart">
+                                                <div class="cart-icon"> </div>
+                                                <div class="cart-label">Cart (<span class='amnt'>5</span>)</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nav-top">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                                        <li><a href="#">Customers</a></li>
+                                        <li><a href="#">Build &amp; Price</a></li>
+                                        <li class="selected"><a href="#">Account</a></li>
+                                        <li class="right-side">
+                                            <div class="cart">
+                                                <div class="cart-icon inner-quantity">2 </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nav-top">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                                        <li><a href="#">Customers</a></li>
+                                        <li><a href="#">Build &amp; Price</a></li>
+                                        <li class="selected"><a href="#">Account</a></li>
+                                        <li class="right-side">
+                                            <div class="alert ">
+                                                <div class="alert-icon"></div>
+                                                <div class="alert-count"> </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nav-top">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                                        <li><a href="#">Customers</a></li>
+                                        <li class="selected"><a href="#">Build &amp; Price</a></li>
+                                        <li><a href="#">Account</a></li>
+                                        <li class="right-side">
+                                            <div class="alert active">
+                                                <div class="alert-icon"></div>
+                                                <div class="alert-count">3</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="nav-top clear-bottom-margin">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                                        <li class="selected"><a href="#">Customers</a></li>
+                                        <li><a href="#">Build &amp; Price</a></li>
+                                        <li><a href="#">Account</a></li>
+                                        <li class="right-side">
+                                            <div class="alert ">
+                                                <div class="alert-icon"></div>
+                                                <div class="alert-count">9</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Left_Navigation" class="h4">Left Navigation</div>
+                    <div class="body">
+                        <p>
+                        A left navigation element can be used to provide nested navigation
+                        for a structured site with 1-2 levels. Our nav is based on a
+                        nested list structure. Elements with no children are a single
+                        <code>&lt;li&gt;</code> element, while nested lists are a second
+                        <code>&lt;ul&gt;</code> within a parent <code>&lt;li&gt;</code>.
+                        This structure can be seen in the example below.
+                        </p>
+                        <p>
+                        The selection structure is controlled by the classes <code>.selected</code>
+                        and <code>.selected-parent</code>. These class labels are applied
+                        to add a green selected bar and expand child elements respectively.
+                        </p>
+                        <p>
+                        Note that in the example below the <code>.interactive</code> class is 
+                        applied to the element. This allows the user to traverse between
+                        top level items without navigating to a new page. With this class removed
+                        active states should be managed on a 'per-page' basis. See examples 
+                        for non-interactive navs.
+                        </p>
+                        <p>
+                        When laying out a page, the left navigation element can be placed
+                        inside a <code>.col-1-6</code> div and the rest of the page
+                        content is inside a <code>.col-5-6</code> div. This structure
+                        is used on this page and many of the demo pages.
+                        </p>
+                        <div class="row">
+                            <div class="col-3-4">
+                                <pre id="leftnav-code" class="prettyprint lang-html" style="height: 430px;"></pre>
+                            </div>
+                            <div class="col-1-4">
+                                <div id="leftnav-disp" class="page-show demo">
+                                    <div class="nav-left interactive flat clear-bottom">
+                                        <ul>
+                                            <li>
+                                                <a>Navigation 1</a>
+                                                <ul>
+                                                    <li><a>Nav 1-1</a></li>
+                                                    <li><a>Nav 1-2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="selected">
+                                                <a>Navigation 2</a>
+                                                <ul>
+                                                    <li class=""><a>Nav 2-1</a></li>
+                                                    <li><a>Nav 2-1</a></li>
+                                                    <li><a>Nav 2-2</a></li>
+                                                    <li><a>Nav 2-3</a></li>
+                                                    <li><a>Nav 2-4</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a>Navigation 3</a>
+                                                <ul>
+                                                    <li><a>Nav 3-1</a></li>
+                                                    <li><a>Nav 3-2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a>Navigation 4</a>
+                                                <ul>
+                                                    <li><a>Nav 4-1</a></li>
+                                                    <li><a>Nav 4-2</a></li>
+                                                    <li><a>Nav 4-2</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Deep_Navigation" class="h4">Deep Navigation</div>
+                    <div class="body">
+                        <p>
+                        When a page requires more than a single nested child for navigation.
+                        When this is the case, the standard left navigation element may
+                        not be sufficient. The deep navigation provides the ability to nest
+                        large numbers of items in a simple to use element.
+                        </p>
+                        <p>
+                        It is important to note that this element should be used sparingly.
+                        as it can quickly become overly complex. In many cases, it may
+                        be possible to simplify page layout rather than use deep navigation.
+                        </p>
+                        <p>
+                        The structure of the div elements is shown below. Note the
+                        importance of marking end points with <code>.dn-terminal</code>.
+                        Note also the placement of <code>.dn-selected</code> and
+                        <code>.dn-active</code>. These are typically updated using the
+                        included JavaScript.
+                        </p>
+                        <div class="row">
+                            <div class="col-3-5">
+                                <pre id="deepnav-code" class="prettyprint lang-html" style="height: 400px;"></pre>
+                            </div>
+                            <div class="col-2-5">
+                                <div id="deepnav-disp" class="page-show demo">
+                                    <div class="panel clear-bottom-margin">
+                                      <div class="dn dn-top dn-selected">
+                                        <div class="dn-title">Home</div>
+                                        <div class="dn-list">
+                                          <div class="dn dn-selected">
+                                            <div class="dn-title">Global Administration for Some Group</div>
+                                            <div class="dn-list">
+                                              <div class="dn dn-terminal"> <div class="dn-title">Business</div> </div>
+                                              <div class="dn dn-terminal"> <div class="dn-title">Admin</div> </div>
+                                              <div class="dn dn-selected">
+                                                <div class="dn-title">Human Resources</div>
+                                                <div class="dn-list">
+                                                  <div class="dn dn-active">
+                                                    <div class="dn-title">ESS</div>
+                                                    <div class="dn-list">
+                                                      <div class="dn dn-terminal dn-active"> <div class="dn-title">NEI Road Map</div> </div>
+                                                      <div class="dn dn-terminal"> <div class="dn-title">Vacation Reporting</div> </div>
+                                                      <div class="dn dn-terminal"> <div class="dn-title">Personal Data</div> </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="dn dn-terminal"> <div class="dn-title">HR Connect</div> </div>
+                                                  <div class="dn dn-terminal"> <div class="dn-title">Internal Resume</div> </div>
+                                                </div>
+                                              </div>
+                                              <div class="dn dn-terminal"> <div class="dn-title">Learning</div> </div>
+                                            </div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Dealer Development</div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Finance</div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Integrated Solutions</div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Marketing</div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Parts</div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Sales</div>
+                                          </div>
+                                          <div class="dn dn-terminal">
+                                            <div class="dn-title">Service</div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Breadcrumbs" class="h4">Breadcrumbs</div>
+                    <div class="body">
+                        <p>
+                        The breadcrumb can be a great way to indicate progress through
+                        a process. The only difference between the two variants is the
+                        dropping of the final element to the bottom line. Frequently
+                        this allows users to move backwards to revise past actions.
+
+                        </p>
+                        <div class="row">
+                            <div class="col-1-2">
+                                <pre id="breadcrumbs-code" class="prettyprint lang-html"></pre>
+                            </div>
+                            <div class="col-1-2">
+                                <div id="breadcrumbs-disp" class="page-show demo">
+                                    <div class="panel">
+                                        <ul class="breadcrumb clear-bottom">
+                                            <li><a href="#">First</a></li>
+                                            <li><a href="#">Second</a></li>
+                                            <li><a href="#">Third</a></li>
+                                            <li>Last</li>
+                                        </ul>
+                                    </div>
+                                    <div class="panel clear-panel">
+                                        <ul class="breadcrumb clear-bottom">
+                                            <li><a href="#">First</a></li>
+                                            <li><a href="#">Second</a></li>
+                                            <li><a href="#">Third</a></li>
+                                            <li class="drop-last">Last</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Pagination" class="h4">Pagination</div>
+                    <div class="body">
+                        <p>
+                        It's frequently important to indicate to the user what position
+                        they are at in a large list of results. Our pagination snippet
+                        should be used in any of these circumstances. Note that unlike
+                        most elements, the pagination element does not include a bottom
+                        margin because of how freqently it is positioned at the bottom
+                        of the page.
+                        </p>
+                        <pre id="pagination-code" class="prettyprint lang-html"></pre>
+                        <div id="pagination-disp" class="page-show demo">
+                            <div class="panel clear-panel">
+                                <div class="pagination traditional">
+                                    <ul>
+                                        <li class="prev"><a href="#">Prev</a></li>
+                                        <li class="first"><a href="#">1..</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li class="selected"><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li class="next"><a href="#"><button>Next<span class="chevron-right">&nbsp;</span></button></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Tabs" class="h4">Tabs</div>
+                    <div class="body">
+                        <p>
+                        Tabs can be used to manage multiple panes of information on
+                        a single page. We provide both large and small tab variants.
+                        Tab groups can be created which automatically bind to show
+                        and hide groups of content. This is done by setting tab
+                        links to the id of related content.
+                        </p>
+                        <pre id="tabs-code" class="prettyprint lang-html"></pre>
+                        <div id="tabs-disp" class="page-show demo clear-bottom-margin">
+                            <div class="tabs set-first large-tabs">
+                                <ul>
+                                    <li><a href="#first-tab">First Tab</a></li>
+                                    <li><a href="#second-tab">Second Tab</a></li>
+                                    <li><a href="#third-tab">Third Tab</a></li>
+                                    <li><a href="#fourth-tab">Fourth Tab</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel">
+                                <div class="tab-content" id="first-tab"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque felis elit, eu faucibus lorem tincidunt quis. Pellentesque rutrum rhoncus laoreet. Vivamus pharetra elit felis, nec vulputate odio ullamcorper convallis. Nunc vestibulum tincidunt scelerisque. Mauris sit amet mi quis enim iaculis condimentum ut nec metus. Donec laoreet ligula et aliquam porttitor. Donec nec laoreet diam, nec posuere ante. Aenean enim justo, vestibulum at varius vel, congue sed nunc. Morbi ut semper nunc. Proin nec orci facilisis, volutpat quam nec, fringilla magna. Aliquam nulla tellus, lacinia ut fermentum at, maximus nec nunc. Maecenas porta sem tellus. Vivamus eget nisl sapien. Nulla cursus a arcu iaculis porta. Curabitur eleifend convallis aliquam. Donec at sagittis augue, in ullamcorper orci. </p></div>
+                                <div class="tab-content" id="second-tab"><p>In blandit a tortor ac imperdiet. Aliquam massa sem, commodo sit amet vulputate vel, pharetra ut ex. Fusce eget velit vitae orci imperdiet tempor. Nunc lacinia tortor quis dolor porta, sit amet euismod ligula efficitur. Etiam id sodales lectus. Pellentesque id sapien interdum, faucibus quam vitae, posuere justo. Sed vulputate nunc ut purus porttitor, tempus ornare libero venenatis. Praesent in tincidunt ante. Donec laoreet, quam sed sodales volutpat, elit ante condimentum quam, eu laoreet ligula libero et dui. Aliquam feugiat rhoncus dolor, non vulputate nulla pulvinar nec. Nullam sagittis tristique eros non venenatis. Integer efficitur nibh in bibendum posuere. Ut vitae finibus tortor, sed convallis enim.</p>  </div>
+                                <div class="tab-content" id="third-tab"><p>Donec accumsan nisi at mauris elementum, in tempor purus cursus. Sed blandit euismod velit, a luctus erat bibendum et. Nunc nulla ligula, varius vel ante sed, dictum blandit nisi. Morbi vel dolor sem. Etiam mattis vulputate arcu ut fermentum. Sed aliquet sem felis, ut luctus mi fermentum eu. Suspendisse sit amet consequat arcu. Sed consectetur nisl sit amet dui facilisis viverra. Nulla placerat eu quam quis fermentum. Integer porttitor nisi nec dui lacinia, sed maximus mauris ornare. Praesent vitae leo faucibus, efficitur massa sed, feugiat sapien. Duis suscipit diam sed libero commodo varius. Suspendisse at ex neque. In ut elementum sapien. Sed ac ipsum eu nulla condimentum consequat sit amet id odio. </p> </div>
+                                <div class="tab-content" id="fourth-tab"><p>Sed sed fermentum mauris. Praesent mattis varius sapien sit amet pellentesque. Donec pulvinar commodo scelerisque. Suspendisse cursus enim odio, non lobortis lorem luctus sed. Cras et sodales nunc. Nullam purus metus, scelerisque nec hendrerit in, aliquam sed sem. Mauris sed vehicula est. Nullam efficitur ex tortor, in ullamcorper nibh ornare non. Aliquam volutpat purus ac ante dapibus vestibulum. Phasellus viverra bibendum nibh id mattis. Sed eu neque volutpat, pretium purus vitae, posuere nibh. Curabitur tempor magna est, sed ullamcorper turpis semper et. Proin eget nibh nisi.  </p></div>
+                            </div>
+                            <div class="invispanel"></div>
+                            <div class="tabs">
+                                <ul>
+                                    <li><a>First Tab</a></li>
+                                    <li class="selected"><a>Second Tab</a></li>
+                                    <li><a>Third Tab</a></li>
+                                    <li><a>Fourth Tab</a></li>
+                                </ul>
+                            </div>
+                            <div class="panel clear-panel">
+                                <p> Suspendisse potenti. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce tortor risus, auctor vel ligula ac, ullamcorper euismod augue. In rhoncus nulla ac est placerat dapibus. Sed ut quam nisl. Sed pharetra urna nec enim sollicitudin tincidunt. Quisque ac pharetra mi. Ut sed turpis iaculis, rhoncus justo sit amet, sollicitudin risus. Sed pretium tortor ut lacinia congue. Phasellus augue risus, congue at odio sed, vehicula rhoncus dolor. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Typography" class="panel spied">
+                    <h3>Typography</h3>
+                    <p>
+                    Standards provides stylings for all standard HTML header elements
+                    <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>. Additionally,
+                    for inline code styled in the same fashion as a header classes
+                    <code>.h1</code> to <code>.h6</code> are also provided. Styling
+                    is also given on the <code>&lt;p&gt;</code> tag, which should be
+                    used for all body content. The final <code>&lt;p&gt;</code> in a
+                    sequence should include the <code>.last</code> class.
+                    </p>
+                    <p>
+                    In addition to standard tags such as
+                    <code>&lt;b&gt;</code>,
+                    <code>&lt;i&gt;</code>, and
+                    <code>&lt;s&gt;</code> we provide the
+                    <code>.secondary-info</code> class
+                    used for formatting secondary info.
+                    Links contained in <code>&lt;a&gt;</code> tags are colored
+                    John Deere green.
+                    </p>
+                    <div class="row">
+                        <div class="col-1-2">
+                            <pre id="type-code" class="prettyprint lang-html"></pre>
+                        </div>
+                        <div class="col-1-2">
+                            <div id="type-disp" class="page-show demo white">
+                                <h1>h1. Header</h1>
+                                <h2>h2. Header</h2>
+                                <h3>h3. Header</h3>
+                                <h4>h4. Header</h4>
+                                <h5>h5. Header</h5>
+                                <h6>h6. Header</h6>
+                                <h6 class="secondary-info">h6. Secondary header</h6>
+                                <span class="small-text">Small text</span>
+                                <p>
+                                Sed metus nisi, posuere lacinia scelerisque
+                                quis, condimentum posuere magna. Quisque
+                                porttitor quam sit amet bibendum egestas.
+                                </p>
+                                <p class="last">
+                                Proin imperdiet, est a viverra euismod, justo erat
+                                egestas erat, ut volutpat nisl mauris nec
+                                ligula. <a href="#">Link example</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 id="Lists">Lists</h4>
+                    <p>
+                    Lists can be presented in several ways depending on the use case.
+                    These styles are controlled by classes on the <code>&lt;ul&gt;</code>
+                    element. Note that lists by default have bottom margins so they
+                    can be used inline with paragraphs. If a list is the final element
+                    in a panel div it should have a <code>.clear-bottom</code> class
+                    added to clear this margin.
+                    </p>
+                    <p>
+                    Lists can also have bullets, or numbers. (Note that the standard
+                    list is left aligned with the edge of a paragraph, but the
+                    <code>.indented</code> class provides a slight indent when
+                    stylistically necessary.) Additionally, we provide
+                    several types of description list including <code>.standard</code>,
+                    <code>.horizontal</code> and <code>.horizontal.wide</code>.
+                    </p>
+                    <div class="row">
+                        <div class="col-1-2">
+                            <pre id="lists-code" class="prettyprint lang-html" style="height: 600px;"></pre>
+                        </div>
+                        <div class="col-1-2">
+                            <div id="lists-disp" class="page-show demo">
+                                <div class="row">
+                                    <div class="col-1-2">
+                                        <div class="panel">
+                                            <ul class="clear-bottom">
+                                                <li>Item 1</li>
+                                                <li>Item 2</li>
+                                                <li>Item 3</li>
+                                                <li>Item 4</li>
+                                            </ul>
+                                        </div>
+                                        <div class="panel">
+                                            <ul class="bulleted thin-list">
+                                                <li>Item 1</li>
+                                                <li>Item 2</li>
+                                                <li>Item 3</li>
+                                                <li>Item 4</li>
+                                            </ul>
+                                            <p class="last"> A list with text beneath it.  </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-1-2">
+                                        <div class="panel">
+                                            <ul class="line-separated">
+                                                <li>Item 1</li>
+                                                <li>Item 2</li>
+                                                <li>Item 3</li>
+                                                <li>Item 4</li>
+                                            </ul>
+                                            <dl class="standard clear-bottom">
+                                                <dt>Number One</dt>
+                                                <dd>Is the first number</dd>
+                                                <dt>Number Two</dt>
+                                                <dd>Is the second number</dd>
+                                                <dt>Number Three</dt>
+                                                <dd>Comes after two</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1">
+                                        <div class="panel">
+                                            <dl class="horizontal clear-bottom">
+                                                <dt>First</dt>
+                                                <dd>Is the first number</dd>
+                                                <dt>Number Two</dt>
+                                                <dd>Is the second number</dd>
+                                                <dt>Number Three</dt>
+                                                <dd>Comes after two</dd>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Buttons" class="spied panel">
+                    <h3>Buttons</h3>
+                    <p>
+                    Two main types of buttons are available, call to action and secondary.
+                    Call to action buttons are used for the primary task of a page, or
+                    the preferred 'next step' for a user. Secondary buttons are used
+                    for additional tasks or actions that a user may take.
+                    Buttons may also be 'disabled' to show a user actions that may be
+                    dependent on other tasks, such as completing a form.
+                    The buttons additionally come in a smaller style which can be
+                    used for tables or inline on forms.
+                    </p>
+                    <p>
+                    Both button types can also be used as a dropdown, which can be
+                    useful for including several actions without cluttering a page
+                    with too many buttons. Many times these can be used to provide
+                    an additional 'actions' menu for miscellaneous tasks.
+                    </p>
+                    <p>
+                    There is a final button style for invisible buttons <code>.invis</code>
+                    which renders similarly to a link. This can be used to create a dropdown
+                    menu inline or without creating a button around it. Other than this specific
+                    use, the invis button should usually not be used.
+                    </p>
+                    <div class="row">
+                        <div class="col-2-3">
+                            <pre id="buttons-code" class="prettyprint lang-html"></pre>
+                        </div>
+                        <div class="col-1-3">
+                            <div id="buttons-disp" style="height:460px" class="page-show demo white">
+                                <p> <button>Secondary Button</button> </p>
+                                <p> <button class="call-to-action">Call To Action Button</button> </p>
+                                <p> <button class="small">Small Secondary Button</button> </p>
+                                <p> <button class="call-to-action small">Small Call To Action Button</button> </p>
+                                <p> <button class="disabled">Disabled Button</button> </p>
+                                <p> <button class="disabled small">Small Disabled Button</button> </p>
+                                <p>
+                                <div class="dropdown-container button-style">
+                                    <button id="dd1" class="dropdown">Click Me</button>
+                                    <!-- <span class="chevron">&nbsp;</span> -->
+                                    <div id="dd1Menu" class="dropdown-menu">
+                                        <ul>
+                                            <li><a href="#">Menu Item 1</a></li>
+                                            <li><a href="#">Menu Item 2 that has lots of wrapping text</a></li>
+                                            <li><a href="#">Menu Item 3</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </p>
+                                <p>
+                                <div class="dropdown-container button-style">
+                                    <button id="dd2" class="dropdown invis">Click Me</button>
+                                    <!-- <span class="chevron">&nbsp;</span> -->
+                                    <div id="dd2Menu" class="dropdown-menu">
+                                        <ul>
+                                            <li><a href="#">Menu Item 1</a></li>
+                                            <li><a href="#">Menu Item 2 that has lots of wrapping text</a></li>
+                                            <li><a href="#">Menu Item 3</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Tables" class="spied panel">
+                    <h3>Tables</h3>
+                    <p>
+                    Tables should not be used for full page layout, but rather
+                    should hold table formatted data similar to a spreadsheet.
+                    We provide a common style for tables along with common elements
+                    like checkboxes that are frequently used to gather user input.
+                    </p>
+                    <p>
+                    For more advanced functionality, we support the use of the 
+                    <a href="libraries.html#data-tables">DataTables plugin</a>. 
+                    This library depends upon JQuery, which is also included in our
+                    set of supported libraries. We provide CSS for the basic usage
+                    of this plugin to match standards.
+                    </p>
+                    <pre id="table-code" style="height: 200px;" class="prettyprint lang-html"></pre>
+                    <div id="table-disp" class="page-show demo white">
+                        <table class="jd-table traditional-table sortable">
+                            <caption><h3 class="table-title">Choose the Following Products to Add to Order</h3><a class="filter" href="#"></a></caption>
+                            <tr>
+                                <th class="sort-none check-col"><input type="checkbox" name="checkall" /><label for="checkall" ></label></th>
+                                <th><a>Product Name &amp; Description</a></th>
+                                <th><a>Serial Number</a></th>
+                                <th><a class="active sort-up">Location</a></th>
+                                <th><a>Price (USD)</a></th>
+                            </tr>
+                            <tr>
+                                <td class="check-col"><input type="checkbox" name="check1" /><label for="check1" ></label></td>
+                                <td>
+                                    <p><a href="#">Used 2009 John Deere 997-72" Mower</a></p>
+                                    <p>Zero turn mower with diesel engine.</p>
+                                </td>
+                                <td>9M9247986324MVE17</td>
+                                <td>
+                                    <p>East Moline, IL</p>
+                                    <p class="secondary-info">USA</p>
+                                </td>
+                                <td class="number-cell">12,000.00</td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="check-col"><input type="checkbox" name="check2" /><label for="check2" ></label></td>
+                                <td>
+                                    <p><a href="#">Used 2009 John Deere 997-72" Mower</a></p>
+                                    <p>Zero turn mower with diesel engine.</p>
+                                </td>
+                                <td>9M9247986324MVE17</td>
+                                <td>
+                                    <p>East Moline, IL</p>
+                                    <p class="secondary-info">USA</p>
+                                </td>
+                                <td class="number-cell">33,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="check-col"><input type="checkbox" name="check3" /><label for="check3" ></label></td>
+                                <td>
+                                    <p><a href="#">Used 2009 John Deere 997-72" Mower</a></p>
+                                    <p>Zero turn mower with diesel engine.</p>
+                                </td>
+                                <td>9M9247986324MVE17</td>
+                                <td>
+                                    <p>East Moline, IL</p>
+                                    <p class="secondary-info">USA</p>
+                                </td>
+                                <td class="number-cell">22,000.00</td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="check-col"><input type="checkbox" name="check4" /><label for="check4" ></label></td>
+                                <td>
+                                    <p><a href="#">Used 2009 John Deere 997-72" Mower</a></p>
+                                    <p>Zero turn mower with diesel engine.</p>
+                                </td>
+                                <td>9M9247986324MVE17</td>
+                                <td>
+                                    <p>East Moline, IL</p>
+                                    <p class="secondary-info">USA</p>
+                                </td>
+                                <td class="number-cell">16,000.00</td>
+                            </tr>
+                            <tr>
+                                <td class="check-col"><input type="checkbox" name="check5" /><label for="check5" ></label></td>
+                                <td>
+                                    <p><a href="#">Used 2009 John Deere 997-72" Mower</a></p>
+                                    <p>Zero turn mower with diesel engine.</p>
+                                </td>
+                                <td>9M9247986324MVE17</td>
+                                <td>
+                                    <p>East Moline, IL</p>
+                                    <p class="secondary-info">USA</p>
+                                </td>
+                                <td class="number-cell">87,000.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="Header" class="spied panel">
+                    <h3>Header</h3>
+                    <p>
+                    Most webpages will have a static header at the top of the page,
+                    many times including a title and maybe a user dropdown. The header
+                    will include standardized John Deere branding. The header can be
+                    customized to fit different information, and different configurations
+                    can be found in the demo files. As a general rule, every page should
+                    include a header.
+                    </p>
+                    <pre id="header-code" class="prettyprint lang-html"></pre>
+                    <div id="header-disp" class="page-show demo white no-pad top" style="height:280px;">
+                        <div class="header">
+                            <div class="wrapper-container">
+                                <h1><a>Application Title</a></h1>
+                                <div class="logo" title="John Deere Logo">&nbsp;</div>
+
+                                <div id="user-info" class="dropdown-container user-info-style">
+                                    <div class="dropdown">
+                                        Hi, <span class="user-name">Michael</span>
+                                    </div>
+                                    <div id="user-settings-nav" class="dropdown-menu">
+                                        <ul class="thin-list">
+                                            <li class="user-name">Michael Hoeg</li>
+                                            <li class="user-title">UX Manager</li>
+                                            <li><a>My Settings</a></li>
+                                            <li><a>Sign Out</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="brandbar-top"></div>
+                            <div class="brandbar-bottom"></div>
+                        </div>
+                    </div>
+                    <p>
+                    Additionally, it is possible to use the header without incuding
+                    a user dropdown. This may be used on a generic page, which does
+                    not require log in information, or where there are no user-specific actions
+                    to take. To do this we simply remove the div structure which creates
+                    the dropdown and add a <code>.no-user</code> class to the <code>h1</code>
+                    element.
+                    </p>
+                    <pre id="header2-code" class="prettyprint lang-html"></pre>
+                    <div id="header2-disp" class="page-show demo white no-pad top" style="height:130px;">
+                        <div class="header">
+                            <div class="wrapper-container">
+                                <h1 class="no-user"><a>Application Title</a></h1>
+                                <div class="logo" title="John Deere Logo">&nbsp;</div>
+                            </div>
+                            <div class="brandbar-top"></div>
+                            <div class="brandbar-bottom"></div>
+                        </div>
+                    </div>
+                    <p>
+                    The header can also show a username with no dropdown or options menu.
+                    This may be used a simple saluation where only a sign out button is necessary
+                    </p>
+                    <pre id="header3-code" class="prettyprint lang-html"></pre>
+                    <div id="header3-disp" class="page-show demo white no-pad top" style="height:140px;">
+                        <div class="header">
+                            <div class="wrapper-container">
+                                <h1><a>Application Title</a></h1>
+                                <div class="logo" title="John Deere Logo">&nbsp;</div>
+
+                                <div id="user-info" class=" user-info-style">
+                                    <div class="user-salutation">
+                                        <span class="salutation">Hi, </span><span class="user-name">Michael</span><span class="text-seperator"></span><a href="">Sign Out</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="brandbar-top"></div>
+                            <div class="brandbar-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Footer" class="spied panel">
+                    <h3>Footer</h3>
+                    <p>
+                    Most pages include a footer at the bottom which contains general links
+                    as well as legal information regarding copyright. We offer two variants
+                    of footer. One with content split left and right, and a slightly thicker
+                    one with content centered. The use of these elements is slightly more
+                    complex, and requires an additional div that contains the rest of the page
+                    content. This allows us to push the footer to the bottom of the page.
+                    The structure can be seen in the example below. Additionally, almost all
+                    examples include a use of a header.
+                    </p>
+                    <!-- <pre id="footer-code" class="prettyprint lang-html"></pre>
+                    <div id="footer-disp" class="page-show demo no-pad bottom">
+                        <div class="wrapper-all-except-footer">
+                        <div class="push"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="wrapper-container">
+                                <span class="footer-links"><a href="#">Home</a> | <a href="#">Feedback</a> | <a href="#">Help</a> | <a href="#">FAQs</a> | <a href="#">Training</a></span>
+                                <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#">Privacy &amp; Data</a> | <a href="https://www.deere.com/wps/dcom/en_US/footer/legal.page">Legal</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                    The footer can be centered by adding <code>.center-footer</code>
+                    to both the <code>footer</code> div and the overall wrapper as
+                    seen below. </p> -->
+                    <pre id="footer2-code" class="prettyprint lang-html"></pre>
+                    <div id="footer2-disp" class="page-show demo no-pad bottom">
+                        <div class="wrapper-all-except-footer center-footer">
+                            <!-- Content goes here -->
+                        <div class="push"></div>
+                        </div>
+                        <div class="footer center-footer">
+                            <div class="wrapper-container">
+                                <span class="footer-links"><a href="#">Home</a> | <a href="#">Feedback</a> | <a href="#">Help</a> | <a href="#">FAQs</a> | <a href="#">Training</a></span>
+                                <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp&nbsp&nbsp&nbsp&nbsp<a href="http://www.deere.com/privacy_and_data/privacy_and_data_us.page">Privacy &amp; Data</a> | <a href="https://www.deere.com/wps/dcom/en_US/footer/legal.page">Legal</a></span>
+
+                            </div>
+                        </div>
+                    </div>
+                    <p class="last">Note the comments indicating content position.</p>
+                </div>
+                <div id="User_Input" class="spied panel">
+                    <h3>User Input</h3>
+                    <p>
+                    We provide an assortment of user input elements themed correctly.
+                    Several example files show the use of these elements in a variety
+                    of scenarios, and should be consulted. Many times using these elements
+                    will involve manually adjusting alignment. In order to maintain
+                    good visual consistency, it is important to pay close attention to
+                    text alignment and spacing. Additionally, an <code>.error</code>
+                    class is provided for non-valid input states. Note that <code>disabled</code>
+                    markers must be applied to both the <code>.input-box</code> as well
+                    as the <code>input</code> element.
+                    </p>
+                    <p>
+                    Tooltips are also provided. To see these in action, focus the 'Phone'
+                    or 'Email Address' text boxes. To add to new elements, check out
+                    our JavaScript in <code>tooltip.js</code>. The new DatePicker component
+                    is shown below as well.
+                    </p>
+                    <pre id="input-code" class="prettyprint lang-html" style="height: 300px;"></pre>
+                    <div id="input-disp" class="page-show demo white">
+                        <div class="row">
+                            <div class="col-1-3">
+                                <div class="input-box">
+                                    <label for="salutation">Title</label>
+                                    <select name="Title" id="salutation">
+                                        <option selected disabled hidden value=''></option>
+                                        <option class="colored" value="Mr">Mr</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Dr">Dr</option>
+                                    </select>
+                                </div>
+                                <div class="input-box disabled">
+                                    <label for="sortdis">State</label>
+                                    <select name="sortdis" id="sortdis" disabled>
+                                        <option selected value='price'>Illinois</option>
+                                        <option value="format">Iowa</option>
+                                        <option value="type">Wisconsin</option>
+                                    </select>
+                                </div>
+
+                                <div class="input-box">
+                                    <label for="phone">Phone<div class="subtext">(Optional)</div></label>
+                                    <input id="phone" class="clear-bottom error" type="text" />
+                                    <div class="tooltip middle">This is an example of a tooltip.</div>
+                                    <p class="help-block">Ex. (XXX) XXX-XXXX</p>
+                                </div>
+                                <div class="input-box">
+                                    <label>Profile Picture<span class="req"></span></label>
+                                    <input id="prof" class="" type="file" />
+                                </div>
+                                <div class="input-box">
+                                    <input type="checkbox" checked/><label></label><div class="check-label">Same As Shipping Address</div>
+                                </div>
+                                <div class="input-box">
+                                    <button type="submit" class="right-align call-to-action">Submit</button>
+                                </div>
+                            </div>
+                            <div class="col-1-3">
+                                <div class="input-box ">
+                                    <label for="email1">Email Address<span class="req"></span></label>
+                                    <input id="email" class="" type="text" />
+                                    <div class="tooltip right error">An example of an error tooltip</div>
+                                </div>
+
+                                <div class="input-box disabled">
+                                    <label for="email2">Confirm Email Address<span class="req"></span></label>
+                                    <input id="email2" class="" type="text" disabled/>
+                                </div>
+                                <div class="input-box">
+                                    <label>Would you like to be added to our mailing list?</label>
+                                    <ul class="radio-list horizontal clear-bottom-margin">
+                                        <li><input type="radio" name="parttype" /><label></label><div>Yes</div></li>
+                                        <li><input type="radio" name="parttype" checked /><label></label><div>No</div></li>
+                                    </ul>
+                                </div>
+                                <div class="input-box disabled">
+                                    <label>Would you like to be added to our mailing list?</label>
+                                    <ul class="radio-list horizontal clear-bottom-margin">
+                                        <li><input type="radio" name="parttype2" disabled checked /><label></label><div>Yes</div></li>
+                                        <li><input type="radio" name="parttype2" disabled /><label></label><div>No</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </form>
+                            <div class="col-1-3">
+                                <div class="input-box">
+                                    <label for="sort">Sort Results By</label>
+                                    <select name="sort" id="sort">
+                                        <option selected value='price'>Price</option>
+                                        <option value="format">Format</option>
+                                        <option value="type">Type</option>
+                                    </select>
+                                </div>
+                                <div class="input-box">
+                                    <label class="extra-space">Filter By Language</label>
+                                    <ul class="thin-list clear-bottom-margin">
+                                        <li><input type="checkbox" checked/><label></label><div class="check-label">English</div></li>
+                                        <li><input type="checkbox" /><label></label><div class="check-label">German</div></li>
+                                        <li><input type="checkbox" /><label></label><div class="check-label">Spanish</div></li>
+                                    </ul>
+                                </div>
+                                <div class="input-box disabled">
+                                    <label class="extra-space">Filter By Language</label>
+                                    <ul class="thin-list clear-bottom-margin">
+                                        <li><input type="checkbox" disabled /><label></label><div class="check-label">English</div></li>
+                                        <li><input type="checkbox" disabled checked /><label></label><div class="check-label">German</div></li>
+                                        <li><input type="checkbox" disabled /><label></label><div class="check-label">Spanish</div></li>
+                                    </ul>
+                                </div>
+                                <div class="input-box clear-bottom">
+                                    <label >Summary of Issue</label>
+                                    <textarea style="height: 45px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Alerts" class="spied panel">
+                    <h3>Alerts</h3>
+                    <p>
+                    Alerts can be used to provide important pieces of specific information.
+                    In code, alerts are simply different list types with specific
+                    styling. There are four different variations, each of which use
+                    the same underlying structure.
+                    </p>
+                    <pre id="alerts-code" class="prettyprint lang-html"></pre>
+                    <div id="alerts-disp" class="page-show demo">
+                        <ul class="alert success">
+                            <li>Update Outlook Information request successfully submitted </li>
+                        </ul>
+                        <dl class="alert error">
+                            <dt>An error occurred while submitting your request</dt>
+                            <dd>The error has been reported to the system administrator. They are hard at work fixing this issue for you. Please check back after 5:00pm CDT.</dd>
+                        </dl>
+                        <ul class="alert caution">
+                            <li>09-December-2014: JDQuote2 Outage Scheduled for 8:00-10:00pm CDT</li>
+                        </ul>
+                        <dl class="alert info clear-bottom-margin">
+                            <dt>Your request will take 48 hours to process</dt>
+                            <dd>If you need immediate assistance please contact your local help desk for workaround options. Please have your ticket number ready for reference.</dd>
+                        </dl>
+                    </div>
+                    <h4 id="Float_Alerts">Floating Alerts</h4>
+                    <p>
+                    In some cases, a floating alert may be used rather than a permanent static alert.
+                    These are frequently used to indicate save or loading status. These alerts
+                    overlay content and are fixed in position on the page. Note that alerts 
+                    do not automatically manage screen position or layering. This means that it is
+                    possible to 'stack' alerts on each other intadvertently. Developers should ensure
+                    that an existing float alert is properly removed before adding another.
+                    </p>
+                    <div class="row">
+                        <div class="col-4-5">
+                            <pre id="floatalert-code" class="prettyprint lang-html" style="height: 300px;"></pre>
+                        </div>
+                        <div class="col-1-5">
+                            <div id="floatalert-disp" class="page-show demo white">
+                                <script>
+                                var alert1, alert2;
+                                var f1 = function() {
+                                    alert1 = $UXF.FloatAlert({
+                                        text: "Project Saved", // Message text
+                                        timeout: 4000          // Length of timeout (ms), default 5000
+                                    });
+                                }
+                                var f2 = function() {
+                                    alert2 = $UXF.FloatAlert({
+                                        text: "Saving Project",
+                                        type: "loading",       // 'success' (default) or 'loading'
+                                        timeout: -1,           // Negative timeout stays on screen until removed.
+                                        screenPos: 75          // Location on screen in %. default 65
+                                    });
+                                }
+                                var rem = function() {
+                                    if (alert1 != null) {
+                                        alert1.remove();
+                                    }
+                                    if (alert2 != null) {
+                                        alert2.remove();
+                                    }
+                                }
+                                </script>
+                                <p><button onclick="f1()" class="">Success Alert</button></p>
+                                <p><button onclick="f2()" class="">Loading Alert</button></p>
+                                <p><button onclick="rem()" class="">Remove Alert</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Accordion" class="panel spied"> <!-- spied -->
+                    <h3>Accordion</h3>
+                    <p>
+                    Accordions can be used to hide content in a collapsed state,
+                    which can be triggered by a user. Our accordions can hold
+                    most content and are triggered by clicking anywhere on the
+                    accordion header.
+                    </p>
+                    <pre id="accordion-code" style="height: 200px" class="prettyprint lang-html"></pre>
+                    <div id="accordion-disp" class="site-style page-show demo white clear-bottom">
+                        <div class="panel">
+                            <div class="accordion">
+                                <div class="title">Welcome to the Accordion</div>
+                                <div class="body">
+                                    <p class="last">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis, diam in suscipit accumsan, justo eros congue nibh, sed volutpat justo lectus eu lorem. Curabitur ut ante ut orci hendrerit mattis quis vitae eros. Ut quis quam eget eros ultricies mollis. Sed est diam, lobortis et tellus vestibulum, laoreet euismod mi. Nunc sit amet pharetra mi. Nulla ac enim bibendum, varius lectus nec, tempus urna. Etiam nulla dui, cursus ac blandit in, varius et orci. Ut egestas nisl massa, vel luctus ante dapibus ac. In mattis eget elit eu porttitor. Quisque non malesuada quam. In eleifend enim ut bibendum auctor. Mauris eu urna luctus, accumsan sem in, imperdiet elit. Curabitur pharetra fermentum libero, at finibus odio pharetra vitae. Nunc sit amet libero sodales, sollicitudin lacus quis, convallis ipsum. Nunc gravida vestibulum elit. Vivamus dolor erat, ultrices in tincidunt sit amet, congue ac ligula.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="accordion closed clear-bottom">
+                                <div class="title">A Follow Up <span class="right-align">Summary Line</span></div>
+                                <div class="body">
+                                    <p class="last">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi mollis, diam in suscipit accumsan, justo eros congue nibh, sed volutpat justo lectus eu lorem. Curabitur ut ante ut orci hendrerit mattis quis vitae eros. Ut quis quam eget eros ultricies mollis. Sed est diam, lobortis et tellus vestibulum, laoreet euismod mi. Nunc sit amet pharetra mi. Nulla ac enim bibendum, varius lectus nec, tempus urna. Etiam nulla dui, cursus ac blandit in, varius et orci. Ut egestas nisl massa, vel luctus ante dapibus ac. In mattis eget elit eu porttitor. Quisque non malesuada quam. In eleifend enim ut bibendum auctor. Mauris eu urna luctus, accumsan sem in, imperdiet elit. Curabitur pharetra fermentum libero, at finibus odio pharetra vitae. Nunc sit amet libero sodales, sollicitudin lacus quis, convallis ipsum. Nunc gravida vestibulum elit. Vivamus dolor erat, ultrices in tincidunt sit amet, congue ac ligula.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Modals" class="spied panel">
+                    <h3>Modals</h3>
+                    <p> Modals are used to show additional page content
+                    </p>
+                    <div class="row">
+                        <div class="col-4-5">
+                            <pre id="modal-code" class="prettyprint lang-html" style="height: 300px;"></pre>
+                        </div>
+                        <div class="col-1-5">
+                            <div id="modal-disp" class="page-show demo white">
+                                <p> <button class="call-to-action" onclick="$UXF.Modal('simpmodal').toggle()">Simple</button> </p>
+                                <p> <button class="call-to-action" onclick="$UXF.Modal('mymodal').toggle()">Content</button> </p>
+                                <div id="simpmodal" class="modal simple-modal">
+                                    <div class="modal-mid">
+                                        <div class="modal-header">
+                                            <div class="caution" title="Caution Logo"></div>
+                                            This will cause a big problem.
+                                        </div>
+                                        <div class="modal-spacer"></div>
+                                        <div class="modal-content">
+                                            <div class="layout-inline">
+                                                <div class="layout-inline-item">
+                                                    <div class="modal-confirm-text"> Continue? </div>
+                                                </div>
+                                                <div class="layout-inline-item right-align">
+                                                    <button onclick="$UXF.Modal('simpmodal').toggle()" class="">No</button>
+                                                    <button onclick="$UXF.Modal('simpmodal').toggle()" class="call-to-action">Delete</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="mymodal" class="modal">
+                                    <div class="modal-mid">
+                                        <div class="modal-header">
+                                            <div class="layout-inline">
+                                                <div class="layout-inline-item">
+                                                    <div class="modal-title">IT Business Application Specialist</div>
+                                                </div>
+                                                <div class="layout-inline-item right-align">
+                                                    <button onclick="$UXF.Modal('mymodal').toggle()" class="">Close</button>
+                                                    <button onclick="$UXF.Modal('mymodal').toggle()" class="call-to-action">Apply</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-spacer"></div>
+                                        <div class="modal-content">
+                                            <h3>Job Information</h3>
+                                            <div class="panel">
+                                                <div class="row">
+                                                    <div class="col-1-2">
+                                                        <dl class="horizontal wide clear-bottom">
+                                                            <dt>Job</dt><dd> Information Systems</dd>
+                                                            <dt>Organizational structure</dt><dd> Agricultural Equipment</dd>
+                                                            <dt>Location</dt><dd> Olathe, Kansas</dd>
+                                                            <dt>Schedule</dt><dd> Full-time</dd>
+                                                            <dt>Shift</dt><dd> Day Job</dd>
+                                                        </dl>
+                                                    </div>
+                                                    <div class="col-1-2">
+                                                        <dl class="horizontal wide clear-bottom">
+                                                            <dt>GJE Job Title</dt><dd>  IT Dealer Business Application Spec III</dd>
+                                                            <dt>Contact Name</dt><dd>  Justin Claypool</dd>
+                                                            <dt>Job Grade</dt><dd>  07</dd>
+                                                            <dt>Personnel Area</dt><dd>  A&amp;T Sales/Mktg - Lenexa Center</dd>
+                                                            <dt>Exemption Status</dt><dd>  Exempt</dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-1-2">
+                                                    <h3>What You'll Do</h3>
+                                                    <div class="panel ">
+                                                        <div>
+                                                            <p>
+                                                            As an IT Business Application Specialist for John Deere's
+                                                            Ag&amp;Turf Division in Olathe, KS, you will be one of two JDU
+                                                            administrators for the enterprise. Your duties will be:
+                                                            </p>
+                                                            <ul class="bulleted clear-bottom">
+                                                                <li> Developing ad-hoc reports for a broad audience </li>
+                                                                <li> Providing training support to dealers, employees, and customers.  </li>
+                                                                <li> Providing accurate and timely metrics to training stakeholders.  </li>
+                                                                <li> Leading the JDU Center of Excellence in upgrades.  </li>
+                                                                <li> Ensuring the development/delivery of JDU training is completed.  </li>
+                                                                <li> System administrator for JDU.  </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-1-2">
+                                                    <h3>What It Takes</h3>
+                                                    <div class="panel">
+                                                        <div>
+                                                            <p>
+                                                            We need an excellent communicator, who thrives on solving
+                                                            problems and working in a team environment. Ideally, you
+                                                            will have a Bachelor's degree in Business Administration or
+                                                            equivalent experience. In addition, we require:
+                                                            </p>
+                                                            <ul class="bulleted clear-bottom">
+                                                                <li> Expert in Excel </li>
+                                                                <li> Expert at report creation in Business Objects </li>
+                                                                <li> General understanding of SQL </li>
+                                                                <li> Understanding of relational data bases </li>
+                                                                <li> Ability to provide Tier 2/3 JDU Support for JD Employees, dealers, and customers.  </li>
+                                                                <li> Proficient in Microsoft Office </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Alternate_Styles" class="spied panel">
+                    <h3>Alternate Styles</h3>
+                    <h4 id="Black_Yellow">Black and Yellow Theme</h4>
+                    <p>
+                    The standard color scheme included uses John Deere green and yellow
+                    as accent and highlight colors, which matches most branding needs.
+                    However, some applications may require the alternate black and yellow
+                    scheme used by Contstruction. To switch to the alternate branding the class
+                    <code>.black-yellow</code> can be added to any HTML element. Typically,
+                    the entire page should be switched, by adding the class to the
+                    <code>&lt;html&gt;</code> element as in:
+                    </p>
+<pre class="prettyprint lang-html ">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;jd black-yellow&quot;&gt;
+    ...
+&lt;/html&gt;
+</pre>
+                    <p>
+                    The impact of this switch effects most of the elements covered
+                    in the documentation. Most changes are simply the elimination of
+                    John Deere Green, but in some cases the changes are more dramatic,
+                    use the toggle dropdown in the header below to change this (and all),
+                    documentation pages. Don't forget to come back here to switch back
+                    to green and yellow.
+                    </p>
+                    <div class="hidden page-show no-pad top" style="height:350px;">
+                        <div class="header">
+                            <div class="wrapper-container">
+                                <h1 class="no-user"><a href="#">Application Title</a></h1>
+                                <div class="logo" title="John Deere Logo">&nbsp;</div>
+                            </div>
+                            <div class="brandbar-top"></div>
+                            <div class="brandbar-bottom"></div>
+                            <div class="nav-top">
+                                <div class="wrapper-container">
+                                    <ul>
+                                        <li class="right-side">
+                                            <div class="dropdown-container theme-switcher-style">
+                                                <div class="dlabel">
+                                                Color Scheme:
+                                                </div>
+                                                <div class="dropdown">
+                                                </div>
+                                                <div class="dropdown-menu">
+                                                    <ul class="theme-list">
+                                                        <li class="green-yellow-selector ">
+                                                            <div class="text">
+                                                                <div class="title"> Green/Yellow </div>
+                                                                <div class="descriptor"> Default Color Scheme used for general usage apps, A&amp;T, Forestry</div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="black-yellow-selector ">
+                                                            <div class="text">
+                                                                <div class="title"> Black/Yellow </div>
+                                                                <div class="descriptor"> For use only with specific construction or JDPS applications</div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 id="Site_Style">Site Style</h4>
+                    <p>
+                    The standard style used is also referred to as 'App Style'. This
+                    general style has a gray background, dark footer, white navbar,
+                    and white panels. This is the style typically used in a webpage
+                    that serves as an application.
+                    </p>
+                    <p>
+                    An alternative set of stylings may be used when the webpage is used
+                    in some cases. This set is referred to as 'Site Style' and are implemented
+                    in a similar fashion to the C&amp;F stylings. The <code>.site-style</code>
+                    class can be added to any element, but typically the <code>&lt;html&gt;</code>
+                    element.
+                    </p>
+<pre class="prettyprint lang-html ">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; class=&quot;jd site-style&quot;&gt;
+    ...
+&lt;/html&gt;
+</pre>
+                    <p class="last">
+                    Site styling changes the background color, footer color, panel
+                    shadow, and top navigation color.
+                    </p>
+                </div>
+
+                <div id="JavaScript" class="spied panel">
+                    <h3>JavaScript</h3>
+                    <p>
+                    We provide a small amount of JavaScript which handles some layout
+                    pieces and minimal interactions. In the advanced distribution
+                    individual source files are separated by component. Additional custom
+                    components can be added following provided template. Note that
+                    unlike the library section, this JavaScript has no external dependencies.
+                    </p>
+                    <div class="row">
+                        <div class="col-1-2">
+                            <p>
+                            Our primary base object is <code>$UXF</code> or <code>UXFrameHelper</code>
+                            both of which refer to the same object. All accessible functions
+                            are accessed through this object.
+                            </p>
+                            <p>
+                            By default, we run configuration and bind events to all of our 
+                            elements present on the page. To disable this behavior we 
+                            specify <i>after</i> the inclusion of the UXFrame script. Such as:
+                            </p>
+<pre class="prettyprint lang-html ">
+&lt;script src=&quot;../js/uxframe-1.3.4.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt; $UXF.defaultBinds = false; &lt;/script&gt;
+</pre>
+                            <p>
+                            Binding objects can be done manually through a series of functions.
+                            Registration can be done for either all components, or individual
+                            components
+                            </p>
+<pre class="prettyprint lang-js">
+$UXF.registerAll();
+$UXF.Register.Accordion();
+var a = document.getElementById('#new');
+$UXF.Register.Accordion(a);
+</pre>
+                            <p>
+                            For specific registration functions (e.g.: <code>$UXF.Register.*</code>)
+                            an optional argument registers only the passed element, or its children.
+                            Note that this will not rebind elements that have already been associated
+                            with a component.
+                            </p>
+                        </div>
+                        <div class="col-1-2">
+                            <p>
+                            Currently accordions support deregistering functionality. This is
+                            done in same same way that registering works. For example, given
+                            an element <code>a</code> we can run the function
+                            <code>$UXF.Deregister.Accordion(a);</code> to remove the previously
+                            set event watchers. Future releases will support additional deregister functions.
+                            
+                            </p>
+                            <p>
+                            Some components allow for direct JavaScript manipulation rather than
+                            relying on events. For example, modals must be triggered directly.
+                            (Forgoing detailed documentation, examining source should provide a
+                            good idea of which functions are available.) To construct a modal object,
+                            we can provide the function either a DOM object, or an element ID.
+                            The <code>.toggle()</code> function changes state.
+                            </p>
+<pre class="prettyprint lang-js">
+var m1 = $UXF.Modal('my-modal');
+var m2 = $UXF.Modal(dom_element);
+m2.toggle();
+</pre>
+                            <p>
+                            Additionally, we provide a series of helper functions to ensure
+                            compatibility with IE8+. These are widely used throughout our 
+                            components.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Complete_Experiences" class="spied panel">
+                    <h3>Complete Experiences</h3>
+                    <p>
+                    The final elements in the documentation are slightly more context
+                    specific and will not be applicable for all projects.
+                    </p>
+                    <h4 id="Login_Page">Login Page</h4>
+                    <p>
+                    The first of these
+                    is a full featured login page, with error messages.
+                    Most login screen arragements are available. Look through the examples
+                    for several different configurations and starting points.
+                    Additionally, the login screens are fully responsive and are
+                    designed to correctly display on mobile devices.
+                    </p>
+                    <pre id="login-code" class="prettyprint lang-html" style="height: 400px;"></pre>
+                    <div id="login-disp" class="page-show demo">
+                        <div class="login">
+                            <div class="login-header"></div>
+                            <div class="login-area">
+                                <div class="panel">
+                                    <div class="login-content">
+                                        <div class="login-topmatter">
+                                            <div class="login-title">Welcome to John Deere</div>
+                                        </div>
+                                        <div class="input-box">
+                                            <input class="no-search-icon" type="text" />
+                                            <div class="input-label">
+                                                Username
+                                            </div>
+                                        </div>
+                                        <div class="input-box">
+                                            <input class="no-search-icon" type="password" />
+                                            <div class="input-label">
+                                                Password
+                                            </div>
+                                        </div>
+                                        <div class="error-message">Your password may need to be reset. Please navigate to My John Deere to complete the password reset process.</div>
+                                        <div class="layout-inline">
+                                            <div class="layout-inline-item">
+                                                <button class="call-to-action ">Sign In</button>
+                                            </div>
+                                        </div>
+                                        <ul class="final-links">
+                                            <li> <a href="#">Create Account</a> </li>
+                                            <li> <a href="#">Forgot Password?</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mini-footer">
+                                <span class="footer-links"><a href="#">Privacy and Data</a> &nbsp;&#8226;&nbsp; <a href="#">Legal</a></span>
+                                <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company.</span>
+                                <span class="footer-legal">All Rights Reserved.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Developer_Features" class="panel jd-dev-hide">
+                    <h3>Developer Features</h3>
+                    <p>
+                    All of the features below are developer features only. They should
+                    be used only to help with development, or test bleeding edge
+                    features. These panels can be shown/hid by adding/removing the
+                    <code>.jd-dev</code> class label on the <code>html</code> element.
+                    These features have no guarantees in terms of versioning and
+                    may break or change significantly between releases. Additionally,
+                    designs found in these sections are not complete, and do not
+                    represent final standards.
+                    </p>
+                    <p>
+                    <code>.jd-dev-altmin</code> modifies the content wrapper to allow
+                    for min width 800px. This can be helpful to half screen two pages on
+                    a monitor with width 1080px..
+                    </p>
+                    <p>
+                    <code>.jd-dev-debug-color</code> modifies the colors of major
+                    layout elements in order to better debug layout issues.
+                    </p>
+                    <p>
+                    Examples using some developer features (if you've downloaded the advanced version):
+                    <ul class="indented bulleted thin-list clear-bottom ">
+                        <li><a href="examples/dev/dev1.html">Dev Example 1</a>: A form submission page built using simple mobile.</li>
+                        <li><a href="examples/dev/dev2.html">Dev Example 2</a>:  A form confirmation page built using simple mobile.</li>
+                    </ul>
+                    </p>
+                    <p>
+                    For new developers of UXFrame please reference the
+                    <a href="developers.html">full developer documentation</a>.
+                    </p>
+                </div>
+                <div id="Date_Pick" class="panel jd-dev-hide"> <!-- spied -->
+                    <h3>Date Pick <span class="alert-info">(Developer Feature)</span></h3>
+                    <p>
+                    The <code>datepick</code> element is currently in development
+                    and uses a new style of JS to bind events.
+                    </style>
+                    </p>
+                    <div class="row">
+                        <div class="col-1-4">
+                            <div class="input-box">
+                                <label for="marker">Marker</label>
+                                <input id="marker" class="" type="text" />
+                            </div>
+                        </div>
+                        <div class="col-1-4">
+                            <div class="input-box">
+                                <label for="date">Start Date</label>
+                                <input id="date" class="datepick " type="text" />
+                            </div>
+                        </div>
+                        <script>
+                        $UXF.addLoadEvent(function(){
+                            $UXF.registerObject('date', $UXF.DatePick);
+                        });
+                        </script>
+                    </div>
+                </div>
+                <div id="Flat_Buttons" class="panel jd-dev-hide"> <!-- spied -->
+                    <h3>Flat Buttons <span class="alert-info">(Developer Feature)</span></h3>
+                    <p>
+                    Flat buttons are used for mobile solutions. This button style
+                    is currently in development.
+                    </style>
+                    </p>
+                    <div class="row">
+                        <div class="col-1-2">
+                            <pre id="flatbuttons-code" class="prettyprint lang-html"></pre>
+                        </div>
+                        <div class="col-1-2">
+                            <div id="flatbuttons-disp" class="page-show demo white">
+                                <div class="jd-dev-flat-buttons">
+                                    <p> <button>Secondary Button</button> </p>
+                                    <p> <button class="call-to-action">Call To Action Button</button> </p>
+                                    <p> <button class="disabled">Disabled Button</button> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Search_Bar" class="panel jd-dev-hide">
+                    <h3>Search Bar <span class="alert-info">(Developer Feature)</span></h3>
+                    <pre id="searchbar-code" class="prettyprint lang-html"></pre>
+                    <div id="searchbar-disp" class="page-show demo">
+                        <div class="input-box jd-dev-search-bar clear-bottom">
+                            <input class="" type="text" />
+                            <div class="input-label">
+                                Enter PIN, Claim #, DTAC Case, or Customer Name
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="Full_Page_Alerts" class="panel jd-dev-hide">
+                    <h3>Full Page Alerts <span class="alert-info">(Developer Feature)</span></h3>
+                    <p>
+                        Note: JavaScript broken for below elements. Fixed in future update.
+                    </p>
+
+                    <pre id="fullpagealerts-code" class="prettyprint lang-html"></pre>
+                    <div id="fullpagealerts-disp" class="page-show white demo">
+                        <p> <button class="call-to-action" onclick="dev_toggleAlert('redalert')">Red Alert</button> </p>
+                        <p class="last"> <button class="call-to-action" onclick="dev_toggleAlert('greenalert')">Green Alert</button> </p>
+                        <!-- <div id="redalert" class="jd-dev-floating-alert error"> -->
+                        <!--     <div class="content"> -->
+                        <!--         <div class="message"> -->
+                        <!--             Attachement is not compatible with this machine -->
+                        <!--         </div> -->
+                        <!--         <div class="responses"> -->
+                        <!--             <button onclick="dev_toggleAlert('redalert');" class="">Dismiss</button> -->
+                        <!--         </div> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+                        <!-- <div id="greenalert" class="jd-dev-floating-alert success"> -->
+                        <!--     <div class="content"> -->
+                        <!--         <div class="message"> -->
+                        <!--             Transaction successful. Your transaction number is #3001203. -->
+                        <!--         </div> -->
+                        <!--         <div class="responses"> -->
+                        <!--             <button onclick="dev_toggleAlert('greenalert');" class="">Dismiss</button> -->
+                        <!--         </div> -->
+                        <!--     </div> -->
+                        <!-- </div> -->
+
+                    </div>
+                </div>
+            </div> <!-- main col-->
+        </div>
+    </div> <!-- End main wrapper-container -->
+    <div class="push"></div>
+    </div>
+    <div class="footer center-footer">
+        <div class="wrapper-container">
+            <span class="footer-links"><a href="#">Home</a> | <a href="#">Feedback</a> | <a href="#">Help</a> | <a href="#">FAQs</a> | <a href="#">Training</a></span>
+            <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Privacy &amp; Data</a> | <a href="https://www.deere.com/wps/dcom/en_US/footer/legal.page">Legal</a> </span>
+        </div>
+    </div>
+    <script>
+        // http://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
+        function escapeHtml(unsafe) {
+            return unsafe
+                 .replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+         }
+        var disp_areas = document.querySelectorAll("div.demo");
+        for ( i = 0; i < disp_areas.length; i++ ) {
+            var id = disp_areas[i].id;
+            var content = escapeHtml(disp_areas[i].innerHTML).split('\n').slice(1);
+
+            var space_amnt = content[0].search(/\S/);
+
+            for ( x = 0; x < content.length; x++ ) {
+                content[x] = content[x].slice(space_amnt);
+
+            }
+
+            var code_id = id.split('-')[0].concat('-code');
+            var code_element = document.getElementById(code_id);
+            code_element.innerHTML = content.slice(0, content.length-1).join('\n');
+        }
+        // Custom stuff to use the same code for building as for displaying.
+        //toggleModal('mymodal');
+        /* mousetrap v1.5.3 craig.is/killing/mice */
+(function(C,r,g){function t(a,b,h){a.addEventListener?a.addEventListener(b,h,!1):a.attachEvent("on"+b,h)}function x(a){if("keypress"==a.type){var b=String.fromCharCode(a.which);a.shiftKey||(b=b.toLowerCase());return b}return l[a.which]?l[a.which]:p[a.which]?p[a.which]:String.fromCharCode(a.which).toLowerCase()}function D(a){var b=[];a.shiftKey&&b.push("shift");a.altKey&&b.push("alt");a.ctrlKey&&b.push("ctrl");a.metaKey&&b.push("meta");return b}function u(a){return"shift"==a||"ctrl"==a||"alt"==a||
+"meta"==a}function y(a,b){var h,c,e,g=[];h=a;"+"===h?h=["+"]:(h=h.replace(/\+{2}/g,"+plus"),h=h.split("+"));for(e=0;e<h.length;++e)c=h[e],z[c]&&(c=z[c]),b&&"keypress"!=b&&A[c]&&(c=A[c],g.push("shift")),u(c)&&g.push(c);h=c;e=b;if(!e){if(!k){k={};for(var m in l)95<m&&112>m||l.hasOwnProperty(m)&&(k[l[m]]=m)}e=k[h]?"keydown":"keypress"}"keypress"==e&&g.length&&(e="keydown");return{key:c,modifiers:g,action:e}}function B(a,b){return null===a||a===r?!1:a===b?!0:B(a.parentNode,b)}function c(a){function b(a){a=
+a||{};var b=!1,n;for(n in q)a[n]?b=!0:q[n]=0;b||(v=!1)}function h(a,b,n,f,c,h){var g,e,l=[],m=n.type;if(!d._callbacks[a])return[];"keyup"==m&&u(a)&&(b=[a]);for(g=0;g<d._callbacks[a].length;++g)if(e=d._callbacks[a][g],(f||!e.seq||q[e.seq]==e.level)&&m==e.action){var k;(k="keypress"==m&&!n.metaKey&&!n.ctrlKey)||(k=e.modifiers,k=b.sort().join(",")===k.sort().join(","));k&&(k=f&&e.seq==f&&e.level==h,(!f&&e.combo==c||k)&&d._callbacks[a].splice(g,1),l.push(e))}return l}function g(a,b,n,f){d.stopCallback(b,
+b.target||b.srcElement,n,f)||!1!==a(b,n)||(b.preventDefault?b.preventDefault():b.returnValue=!1,b.stopPropagation?b.stopPropagation():b.cancelBubble=!0)}function e(a){"number"!==typeof a.which&&(a.which=a.keyCode);var b=x(a);b&&("keyup"==a.type&&w===b?w=!1:d.handleKey(b,D(a),a))}function l(a,c,n,f){function e(c){return function(){v=c;++q[a];clearTimeout(k);k=setTimeout(b,1E3)}}function h(c){g(n,c,a);"keyup"!==f&&(w=x(c));setTimeout(b,10)}for(var d=q[a]=0;d<c.length;++d){var p=d+1===c.length?h:e(f||
+y(c[d+1]).action);m(c[d],p,f,a,d)}}function m(a,b,c,f,e){d._directMap[a+":"+c]=b;a=a.replace(/\s+/g," ");var g=a.split(" ");1<g.length?l(a,g,b,c):(c=y(a,c),d._callbacks[c.key]=d._callbacks[c.key]||[],h(c.key,c.modifiers,{type:c.action},f,a,e),d._callbacks[c.key][f?"unshift":"push"]({callback:b,modifiers:c.modifiers,action:c.action,seq:f,level:e,combo:a}))}var d=this;a=a||r;if(!(d instanceof c))return new c(a);d.target=a;d._callbacks={};d._directMap={};var q={},k,w=!1,p=!1,v=!1;d._handleKey=function(a,
+c,e){var f=h(a,c,e),d;c={};var k=0,l=!1;for(d=0;d<f.length;++d)f[d].seq&&(k=Math.max(k,f[d].level));for(d=0;d<f.length;++d)f[d].seq?f[d].level==k&&(l=!0,c[f[d].seq]=1,g(f[d].callback,e,f[d].combo,f[d].seq)):l||g(f[d].callback,e,f[d].combo);f="keypress"==e.type&&p;e.type!=v||u(a)||f||b(c);p=l&&"keydown"==e.type};d._bindMultiple=function(a,b,c){for(var d=0;d<a.length;++d)m(a[d],b,c)};t(a,"keypress",e);t(a,"keydown",e);t(a,"keyup",e)}var l={8:"backspace",9:"tab",13:"enter",16:"shift",17:"ctrl",18:"alt",
+20:"capslock",27:"esc",32:"space",33:"pageup",34:"pagedown",35:"end",36:"home",37:"left",38:"up",39:"right",40:"down",45:"ins",46:"del",91:"meta",93:"meta",224:"meta"},p={106:"*",107:"+",109:"-",110:".",111:"/",186:";",187:"=",188:",",189:"-",190:".",191:"/",192:"`",219:"[",220:"\\",221:"]",222:"'"},A={"~":"`","!":"1","@":"2","#":"3",$:"4","%":"5","^":"6","&":"7","*":"8","(":"9",")":"0",_:"-","+":"=",":":";",'"':"'","<":",",">":".","?":"/","|":"\\"},z={option:"alt",command:"meta","return":"enter",
+escape:"esc",plus:"+",mod:/Mac|iPod|iPhone|iPad/.test(navigator.platform)?"meta":"ctrl"},k;for(g=1;20>g;++g)l[111+g]="f"+g;for(g=0;9>=g;++g)l[g+96]=g;c.prototype.bind=function(a,b,c){a=a instanceof Array?a:[a];this._bindMultiple.call(this,a,b,c);return this};c.prototype.unbind=function(a,b){return this.bind.call(this,a,function(){},b)};c.prototype.trigger=function(a,b){if(this._directMap[a+":"+b])this._directMap[a+":"+b]({},a);return this};c.prototype.reset=function(){this._callbacks={};this._directMap=
+{};return this};c.prototype.stopCallback=function(a,b){return-1<(" "+b.className+" ").indexOf(" mousetrap ")||B(b,this.target)?!1:"INPUT"==b.tagName||"SELECT"==b.tagName||"TEXTAREA"==b.tagName||b.isContentEditable};c.prototype.handleKey=function(){return this._handleKey.apply(this,arguments)};c.init=function(){var a=c(r),b;for(b in a)"_"!==b.charAt(0)&&(c[b]=function(b){return function(){return a[b].apply(a,arguments)}}(b))};c.init();C.Mousetrap=c;"undefined"!==typeof module&&module.exports&&(module.exports=
+c);"function"===typeof define&&define.amd&&define(function(){return c})})(window,document);
+
+Mousetrap.bind('up down left right', function() {
+    if ($UXF.hasClass(document.documentElement, 'jd-dev')) {
+        $UXF.removeClass(document.documentElement, 'jd-dev');
+    } else {
+        $UXF.addClass(document.documentElement, 'jd-dev');
+
+    }
+
+});
+Mousetrap.bind('c f c f c f', function() {
+    $UXF.ThemeSwitcher().toggle()
+
+});
+
+    </script>
+</body>
+
+</html>

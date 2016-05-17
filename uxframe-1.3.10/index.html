@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" class="jd ux-site">
+<head>
+    <meta charset="UTF-8">
+    <title>UXFrame</title>
+    <script src="js/uxframe-1.3.10.min.js"></script>
+    <link rel="stylesheet" href="css/uxframe-1.3.10.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+
+<div class="wrapper-all-except-footer">
+    <div class="header no-top-nav">
+        <div class="wrapper-container">
+            <h1 class=""><a href="#">UXFrame</a></h1>
+            <div class="logo" title="John Deere Logo">&nbsp;</div>
+            <div class="user-info">Version 1.3.10</div>
+        </div>
+        <div class="brandbar-top"></div>
+        <div class="brandbar-bottom"></div>
+    </div>
+
+    <div class="wrapper-container">
+        <div class="row">
+            <div class="col-1-6">
+                <div id="fixed-panel" class="nav-left thin-child loaded flat">
+                    <ul>
+                        <li class="selected"><a href="#">Getting Started</a></li>
+                        <li><a href="docs/documentation.html">Documentation</a></li>
+                        <li><a href="docs/libraries.html">Libraries</a></li>
+                        <li><a href="docs/examples.html">Examples</a></li>
+                    </ul>
+                </div>
+                <div id="fixed-spacer" class="panel"></div>
+            </div>
+            <div class="col-5-6">
+                <h2>Getting Started</h2>
+                <div class="panel">
+                    <p>
+                        John Deere User Experience Standards are available as a single
+                        download named UXFrame. This framework contains all of the
+                        necessary code to begin writing a web application that follows
+                        internal standards. New applications can be easily created by
+                        following provided examples and documentation, and existing
+                        applications can be updated progressively.
+                    </p>
+                    <p>
+                        UXFrame is our canonical implementation of the John Deere visual standards.
+                        Although, it is certainly possible to achieve the same aesthetic using
+                        different tools or code, and using our implementation is in no way required.
+                        If using a custom implementation fits team need
+                        better, that approach should be preferred, and our implementation
+                        should serve as a style guide.
+                    </p>
+                    <p>
+                        However, by using our framework, developers can spend less time
+                        recreating UI elements and layouts and more time working on an
+                        application. Additionally, components built using the framework
+                        can be used across applications and reintegrated into the standards
+                        for other teams to use.
+                    </p>
+                    <p>
+                        UXFrame is currently under active development by a small team
+                        of developers on the IT UX team. We are always using, debugging, and
+                        improving our code. As with any project, it is always important
+                        to include proper front-end testing when using our code. We hope
+                        you will engage with our team to improve this framework.
+                    </p>
+                    <p>
+                        We've also included several open source libraries that can be used
+                        along side our code. Basic documentation and examples for these
+                        libraries are included.
+                    </p>
+                    <p class="last">
+                        For questions, comments, thoughts, ideas, and contributions please contact
+                        <a href="mailto:SeefeldtBenjaminD@JohnDeere.com?subject=UXFrame Feedback">Ben Seefeldt</a> or
+                        <a href="mailto:NewkirkCraigA@JohnDeere.com?subject=UXFrame Feedback">Craig Newkirk</a>.
+                    </p>
+                </div>
+                <h2>Downloads</h2>
+                <div class="panel">
+                    <h4>Standard Distribution</h4>
+                    <p>
+                        The standard download for UXFrame includes everything a standard
+                        developer will need to get started using the framework. It
+                        includes a single CSS and JavaScript file to import into a project,
+                        as well as the John Deere Sans font file and necessary images.
+                        In addition to these necessary resources it also includes
+                        open source libraries, developer documentation and a handful of coded examples. If
+                        you're new to this tool, start here.
+                    </p>
+                    <a href="dist/uxframe-1.3.10.zip">
+                        <button class='call-to-action right-align'>Download UXFrame</button>
+                    </a>
+                </div>
+                <div class="row">
+                    <div class="col-1-2">
+                        <div class="panel">
+                            <h4>Minimal Distribution</h4>
+                            <p>
+                                The miminal download removes the documentation and
+                                examples and includes only the content necessary to
+                                run a project. This should be used by developers who
+                                are comfortable using UXFrame, or projects that are
+                                already using the framework.
+                            </p>
+                            <a href="dist/uxframe-minimal-1.3.10.zip">
+                                <button class='right-align'>Download Minimal</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-1-2">
+                        <div class="panel">
+                            <h4>Advanced Distribution</h4>
+                            <p>
+                                UXFrame is built using <a href="http://lesscss.org/">less</a>
+                                and <a href="http://gruntjs.com/">grunt</a>. The source
+                                files to rebuild the standards are included in the advanced
+                                download. If your project uses these technologies, or
+                                if you are interested in extending the current standards,
+                                this distribution may be helpful. This also includes examples
+                                of features that are currently in developer preview.
+                            </p>
+                            <a href="dist/uxframe-advanced-1.3.10.zip">
+                                <button class='right-align'>Download Advanced</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h2>Changelog<a href="http://semver.org/">*</a></h2>
+                <div class="panel">
+                    <h3>1.3.10</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Registration/deregistration bugs.</li>
+                        <li>Adding automatic tab event registration.</li>
+                    </ul>
+                    <h3>1.3.9</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Fixed multiple registration bug for elements.</li>
+                        <li>Fixed datepicker not being selectable on</li>
+                        <li>Darkened background of disabled form elements.</li>
+                        <li>Added documentation for floating alerts and fixed remove function to not attempt removal if
+                            already gone.
+                        </li>
+                        <li>Added documentation for deregistering functionality.</li>
+                        <li>Reverted incorrect modal code in documentation.</li>
+                    </ul>
+                    <h3>1.3.8</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Fixed syntax error in CSS for file selector.</li>
+                        <li>Added Deregister functionality in JS helper code, and specifically for Accordions. More to
+                            follow.
+                        </li>
+                        <li>Modified disabled to add <code>.ie-fix</code> class.</li>
+                        <li>Modified unstyled flicker of content fix to more gracefully fail when JS is disabled.</li>
+                    </ul>
+                    <h3>1.3.7</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Fixed legal links in footer example.</li>
+                        <li>Added two styles of floating alert messages.</li>
+                        <li>Modified disabled to match readonly state for an IE bug workaround.</li>
+                    </ul>
+                    <h3>1.3.6</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>New method for binding DOM objects to events.</li>
+                        <li>Fixed radio buttons and checkboxes to trigger change event when clicking label.</li>
+                        <li>Slightly changed color of accordion collapsed state.</li>
+                        <li>Added basic Deere legal information to minified versions of distributed code.</li>
+                        <li>Added DatePicker for text input boxes to dev-features. This is a starting point for the
+                            design and functionality, but should not be used as
+                            part of any production site.
+                        </li>
+                    </ul>
+                    <h3>1.3.5</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Significant JavaScript modifications for event binding.
+                            We've added functions for rebinding objects, turning
+                            off default events, or binding specific components.
+                        </li>
+                        <li>Added documentation section for JavaScript.</li>
+                        <li>Added tooltips and basic JavaScript.</li>
+                        <li>Changed the chevron for the <code>select</code> element to be our chevron icon.</li>
+                    </ul>
+                    <h3>1.3.4</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Changed horizontal label line-height.</li>
+                        <li>Fixed lack of white background for text boxes.</li>
+                        <li>Working on making component selectors sufficiently specific.</li>
+                        <li>Small amount of non-breaking class name normalization.</li>
+                        <li>Tweaking disabled states for radio buttons to fix hover effects and cursor state.</li>
+                        <li>Added readonly state for standard input boxes.</li>
+                    </ul>
+                    <h3>1.3.3</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Fixed event propagation code for Firefox.</li>
+                        <li>Significant <code>.black-yellow</code> fixes.</li>
+                        <li>Added line about development process and testing.</li>
+                    </ul>
+                    <h3>1.3.2</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Rounding error for <code>.col-1-6</code>.</li>
+                        <li>Header with on dev mobile example.</li>
+                        <li>IE bug with colorswitcher.</li>
+                        <li>Slightly lightened panel shadows to match design standards.</li>
+                        <li>Added last child psuedo-class on paragraphs.</li>
+                        <li>Added checkbox and radio to mobile dev example.</li>
+                        <li>Made outline color of user input elements match.</li>
+                        <li>Tweaked button dropdown.</li>
+                        <li>Added disabled states to most of the user input elements that didn't have them.</li>
+                        <li>Modified first example to show header with title alone.</li>
+                        <li>Show pointer cursor on all parts of left nav.</li>
+                        <li>Added <code>img.fill</code> class for images to fill parent div horizontally. (Typicaly a
+                            column or a panel.)
+                        </li>
+                        <li>Added interactive class for nav-left element.</li>
+                        <li>Hide color switcher in documentation.</li>
+                    </ul>
+                    <h3>1.3.1</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Added <code>ThemeSwitcher</code> for toggling colorschemes.</li>
+                        <li>Added D3.js and NVD3.js to libraries code. Charts!</li>
+                        <li>Added DataTables libary code. Enhanced Tables!</li>
+                    </ul>
+                    <h3>1.3.0</h3>
+                    <ul class="thin-list bulleted indented">
+                        <li>Fixed line height in wrapped lists.</li>
+                        <li>Commented out ie8 force meta tag in documentation.</li>
+                        <li>Fixed list second line indent for bulleted lists.</li>
+                        <li>Reorganization of documentation page.</li>
+                        <li>Moved external libraries to different folder configuration.</li>
+                        <li>Fixed black-yellow color for user dropdown in header.</li>
+                        <li>Fixed inline search bar in top nav.</li>
+                        <li>Increased base font size for body text and changed related fonts and element sizes to
+                            stylistically match larger font stack.
+                        </li>
+                        <li>Added classes for non-dropdown username in header.</li>
+                        <li>Increased footer size.</li>
+                        <li>Replaced example 6 in main example list.</li>
+                        <li>Added new <code>.small-text</code> class.</li>
+                    </ul>
+                    <div class="accordion closed">
+                        <!-- <div class="title"><h3 class="clear-bottom">1.0.*</h3></div> -->
+                        <div class="title">1.2.*</div>
+                        <div class="body">
+                            <h3>1.2.6</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Switched example6 for a new example that fits into application standards better.
+                                </li>
+                                <li>Added a variety of related layout items with the new example.</li>
+                                <li>Major additions include joined panels and data descriptors.</li>
+                                <li>Rounded 'filter' style search bar.</li>
+                                <li>Corrected fixed panel so it scrolls when page size is 'too small'.</li>
+                            </ul>
+                            <h3>1.2.5</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Fixed search loop incorrectly showing in text input boxes.</li>
+                            </ul>
+                            <h3>1.2.4</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Slightly changed the way error text after a gapped input box works in login pages.
+                                </li>
+                                <li>Fixed dropdown margins in Chrome/IE.</li>
+                                <li>Fixed invis button in IE8.</li>
+                                <li>Fixed JS problems with JQuery in IE8. Functions were being added to
+                                    <code>Object</code> and not <code>$UXF</code>.
+                                </li>
+                                <li>Modified input box labels to show until text is entered. Not on focus.</li>
+                                <li>Modified search inputs to do the same as above with the search loop. There will most
+                                    likely be additional changes regarding this behavior.
+                                </li>
+                            </ul>
+                            <h3>1.2.3</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Fixed iPhone responsivity issue.</li>
+                                <li>Fixed gap beneath dropdown menu in login example.</li>
+                                <li>Replaced HQ Deere logos with better rastered versions.</li>
+                                <li>Added <code>loginlong.html</code> example temporarily.</li>
+                            </ul>
+                            <h3>1.2.2</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Fixed login logo sizing based on input from branding.</li>
+                                <li>Removed rogue <code>console.log</code> function that was breaking IE.</li>
+                                <li>Fixed dropdown button spacing issues in Safari/iOS browsers.</li>
+                                <li>Fixed incorrect label alignment on <code>form-horizontal</code>.</li>
+                            </ul>
+                            <h3>1.2.1</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>John Deere HQ Logo on login was clipping in some IE8. Changed width so this wouldn't
+                                    be a problem at &gt;300 resolutions.
+                                </li>
+                                <li>Page width gave responsive issues on login page. Added media query to fix.</li>
+                                <li>Fixed long button text issues.</li>
+                                <li>Added concatenation for overflowing text box labels.</li>
+                            </ul>
+                            <h3>1.2.0</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Added advanced layout example for a right hand button grouping.</li>
+                                <li>Updated code related to the basic file upload input element so that it matches with
+                                    standards.
+                                </li>
+                                <li>Adding JQuery and JQuery Validation to build process and distribution.</li>
+                                <li>Added Library documentation page.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion closed">
+                        <!-- <div class="title"><h3 class="clear-bottom">1.0.*</h3></div> -->
+                        <div class="title">1.1.*</div>
+                        <div class="body">
+                            <h3>1.1.2</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Modified JavaScript helper functions to correctly pass event through.</li>
+                                <li>Fixed Accordions so you can't select text.</li>
+                                <li>Modified labels after radio and check boxes so that the text toggles selected
+                                    state.
+                                </li>
+                                <li>Added error page code, images and example.</li>
+                                <li>Fixed spacing in text area.</li>
+                            </ul>
+                            <h3>1.1.1</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Fixed search loop showing in text input boxes they are not supposed to be in.</li>
+                                <li>Changed links and chevrons to green in breadcrumb snippet.</li>
+                                <li>Modified active and inactive states to specialty tiles in the developer area.</li>
+                                <li>Various IE8 compatibility tweaks</li>
+                            </ul>
+                            <h3>1.1.0</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Released accordion snippet.</li>
+                                <li>Refactored all JavaScript. Reduced size of minified file. Organized code into
+                                    multiple files.
+                                </li>
+                                <li>A variety of small interface tweaks (font sizes, colors, etc).</li>
+                                <li>Updated user input code including hover colors and checkbox colors.</li>
+                                <li>Fixed examples to match new JavaScript.</li>
+                                <li>Updated IE8 specific CSS to match new div organization.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="accordion closed clear-bottom">
+                        <!-- <div class="title"><h3 class="clear-bottom">1.0.*</h3></div> -->
+                        <div class="title">1.0.*</div>
+                        <div class="body">
+                            <h3>1.0.4</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Modified cart to include wrapper div</li>
+                                <li>Added two specialty panels to developer features</li>
+                                <li>Added navtop alerts to developer features</li>
+                                <li>Added large search bar to developer features</li>
+                                <li>Added full page alerts to developer features</li>
+                                <li>Set input element font size to 12px.</li>
+                                <li>Fixed wrapper-container padding to match panels.</li>
+                            </ul>
+                            <h3>1.0.3</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Added <code>.simple-mobile</code> to <code>.jd-dev</code>.</li>
+                                <li>Added links to dev examples.</li>
+                                <li>Fixed console.log bug for toggle of dev mode in IE.</li>
+                                <li>Some small changes to login screen css and examples.</li>
+                                <li>Added black-yellow checkbox.</li>
+                                <li>Fixed text area padding and added a text area element to the user input example.
+                                </li>
+                                <li>Added breadcrumbs snippet back into standards.</li>
+                                <li>Added pagination example, which was in the code, but was missed in the
+                                    documentation.
+                                </li>
+                            </ul>
+                            <h3>1.0.2</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Added <code>.jd-dev-*</code> classes which will cover custom dev classes that could
+                                    be helpful but shouldn't be used in production code.
+                                </li>
+                                <li><code>.jd-dev-altmin</code> modifies the min-width of the screen to 880px, which
+                                    allows a whole page to fit on a halved 1920x1080 screen.
+                                </li>
+                                <li><code>.jd-dev-debug-color</code> sets debuggable colors to different divs. This will
+                                    be expanded as needed. Currently covers some basic elements.
+                                </li>
+                                <li>Added <code>.jd-dev</code> for toggling visibility of dev features in documentation.
+                                <li>Added accordions snippet to developer features.</li>
+                                <li>Added flat button style to developer features.</li>
+                                <li>Added <code>.invis</code> class for buttons to allow for dropdown button with
+                                    user-info look.
+                                </li>
+                                <li>Added dropdown language selector example to the third login example.</li>
+                            </ul>
+                            <h3>1.0.1</h3>
+                            <ul class="thin-list bulleted indented">
+                                <li>Modified login divs to be responsive down to 200px.</li>
+                                <li>Added more login examples.</li>
+                                <li>Removed green link in red text. No Christmas colors.</li>
+                                <li>Fixed use of id on header tags in examples which stopped dropdown examples from
+                                    working.
+                                </li>
+                                <li>Added high quality black and yellow logo for login pages.</li>
+                            </ul>
+                            <h3>1.0.0</h3>
+                            <ul class="thin-list bulleted indented clear-bottom">
+                                <li>Initial Release</li>
+                                <li>Includes basic snippets found on current <a
+                                        href="http:\\ux.deere.com">ux.deere.com</a> website
+                                    rebuilt using LESS build system.
+                                </li>
+                                <li>Introduction of basic column based layout system.</li>
+                                <li>Creation of set of example pages.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="push"></div>
+</div>
+<div class="footer">
+    <div class="wrapper-container">
+        <span class="footer-links"><a href="/index.html">Home</a> | <a href="../standards/web/pages/feedback.html">Contact Us</a></span>
+        <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="http://www.deere.com/privacy_and_data/privacy_and_data_us.page"
+                target="new">Privacy &amp; Data</a> | <a href="http://www.deere.com/en_US/footer/legal.page"
+                                                         target="new">Legal</a> </span>
+
+    </div>
+</div>
+
+</body>
+</html>

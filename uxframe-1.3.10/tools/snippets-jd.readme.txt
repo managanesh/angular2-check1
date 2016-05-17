@@ -1,0 +1,19 @@
+`snippets-jd.json` is a set of custom Emmet extensions for use developing using
+the John Deere IT UX web standards.
+
+Information on Emmet can be found at: http://emmet.io/
+
+Installation instructions are editor specific and should be found on editor
+specific Emmet documentation.
+
+Command List:
+
+jd:html - Basic structure of JD page including css and js imports
+jd:css - Standalone css import
+jd:js - Standalone js import
+jd:header -  John Deere application header without user
+jd:header:user - John Deere application header with user
+jd:footer - Content wrapper and basic footer.
+jd:navtop - Top bar navigation element
+jd:navtop:sub - Submenu element for navtop
+jd:navtop:search - Right side search bar for navtop

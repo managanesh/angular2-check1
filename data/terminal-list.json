@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "equipID": "1DW87654321",
+      "status":"PCMAMGC123456",
+      "orgName": "Org1"
+    },
+    {
+      "equipID": "1DW876654123",
+      "status":"PCMAMGF34521",
+      "orgName": "Org2"
+    },
+    {
+      "equipID": "1RW12387654",
+      "status":"PCMAMGC1230987",
+      "orgName": "Org2"
+    },
+    {
+      "equipID": "1RW9871256",
+      "status":"PCMAMGA1234",
+      "orgName": "Org4"
+    }
+  ]
+}

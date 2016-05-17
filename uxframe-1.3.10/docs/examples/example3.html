@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="jd ux-site" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Side Search Example</title>
+    <link rel="stylesheet" href="../../css/uxframe-1.3.10.min.css" media="all">
+    <script src="../../js/uxframe-1.3.10.min.js"></script>
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon" />
+
+</head>
+<body>
+    <div id="popupBackground" onclick="toggleUserInfo();"></div>
+    <div class="wrapper-all-except-footer">
+    <div class="header">
+        <div class="wrapper-container">
+            <h1><a href="#">Application Title</a></h1>
+            <div class="logo" title="John Deere Logo">&nbsp;</div>
+            <div id="user-info" class="dropdown-container user-info-style">
+                <div class="dropdown">
+                    Welcome, <span class="user-name">Craig Newkirk</span>
+                </div>
+                <div id="user-settings-nav" class="dropdown-menu">
+                    <ul class="thin-list">
+                        <li class="user-name">Craig Newkirk</li>
+                        <li class="user-title">UX Architect</li>
+                        <li><a>My Settings</a></li>
+                        <li><a>Sign Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="brandbar-top"></div>
+        <div class="brandbar-bottom"></div>
+    </div>
+    <div class="nav-top">
+        <div class="wrapper-container">
+            <ul>
+                <li class="home"><a title="Go to Application Home" href="#">&nbsp;</a></li>
+                <li><a href="#">Customers</a></li>
+                <li class="has-sub-menu">
+                    <a href="#">Inventory<span>&nbsp;</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Build & Price</a></li>
+                <li class="has-sub-menu">
+                    <a href="#">Order<span>&nbsp;</span></a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                        <li><a href="#">Sub Menu Item</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Account</a></li>
+                <li class="search">
+                    <form name="siteSearchForm" action="#" method="#">
+                        <div class="input-box">
+                            <input type="text" id="inputSiteSearch"  class="inline-button" title="Search For" value="" />
+                            <div class="input-label">
+                                Search
+                            </div>
+                            <div class="submit" id="submitSiteSearch">
+                                <button type="submit" class="call-to-action" title="Go"></button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="wrapper-container">
+        <div class="row">
+            <div class="col-1-4">
+                <div class="panel">
+                    <h4>Quick Search</h4>
+                    <h6>Part Number</h6>
+                    <div class="input-box">
+                        <input class="no-search-icon" type="text" onkeyup="this.setAttribute('value', this.value);" value="" />
+                        <div class="input-label">
+                        </div>
+                    </div>
+                    <ul class="radio-list">
+                        <li><input type="radio" name="parttype" checked="checked" /><label></label><div>John Deere</div></li>
+                        <li><input type="radio" name="parttype" /><label></label><div>Non-John Deere</div></li>
+                    </ul>
+                    <h6>Keyword</h6>
+                    <div class="input-box">
+                        <input class="no-search-icon" type="text" onkeyup="this.setAttribute('value', this.value);" value="" />
+                        <div class="input-label">
+                        </div>
+                    </div>
+                    <button class="right-align call-to-action">Search</button>
+                </div>
+                <h3>More Links</h3>
+                <div class="panel">
+                    <ul class="line-separated clear-bottom">
+                        <li><a href="#">What's New</a></li>
+                        <li><a href="#">JDPC</a></li>
+                        <li><a href="#">Engines - SN to Option Codes</a></li>
+                        <li><a href="#">Order Zone Gen II</a></li>
+                        <li><a href="#">Warranty Reports</a></li>
+                        <li><a href="#">John Deere Reman</li> </a>
+                        <li><a href="#">JDM Direct Ship</li> </a>
+                        <li><a href="#">Parts OnSite</li> </a>
+                        <li><a href="#">Product Videos</li> </a>
+                        <li><a href="#">Promotional Calendar</li> </a>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col-3-4">
+                <dl class="alert error">
+                    <dt>An error occurred while submitting your request</dt>
+                    <dd>The error has been reported to the system administrator. They are hard at work fixing this issue for you. Please check back after 5:00pm CDT.</dd>
+                </dl>
+                <h2>Search PartsEXPERT</h2>
+                <div class="panel">
+                    <div class="layout-inline">
+                        <div style="width:33%" class="layout-inline-item">
+                            <div class="input-box">
+                                <input class="" type="text" onkeyup="this.setAttribute('value', this.value);" value="" />
+                                <div class="input-label">
+                                    Serial Number
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width:66%" class="layout-inline-item">
+                            <div class="input-box">
+                                <input class="" type="text" onkeyup="this.setAttribute('value', this.value);" value="" />
+                                <div class="input-label">
+                                    Division
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-inline-item">
+                            <button class="right-align call-to-action">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1-2">
+                        <h2>Trending Documents</h2>
+                        <div class="panel">
+                            <ul class="bulleted thin-list clear-bottom">
+                                <li><a href="#">Sprayer Guide</a></li>
+                                <li><a href="#">DKD 1801 Oil Guide</a></li>
+                                <li><a href="#">DKD 1536 Paint Chart</a></li>
+                                <li><a href="#">Ag Fulid Capacities</a></li>
+                                <li><a href="#">2000 Series Tractor Filter Links</a></li>
+                                <li><a href="#">2011 Home and Workshop Products Catalog</a></li>
+                                <li><a href="#">1023E, 1025R, 2036R Checklist</a></li>
+                                <li><a href="#">Tilage Guide</a></li>
+                                <li><a href="#">Fluid Capacities for Turf Equipment</a></li>
+                                <li><a href="#">Terminals and Connectors Guide</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-1-2">
+                        <h2>Quick Links</h2>
+                        <div class="panel">
+                            <div class="row">
+                                <div class="col-1-2">
+                                    <ul class="bulleted thin-list clear-bottom">
+                                        <li><a href="#">What's New</a></li>
+                                        <li><a href="#">JDPC</a></li>
+                                        <li><a href="#">Engines - SN to Option Codes</a></li>
+                                        <li><a href="#">Order Zone Gen II</a></li>
+                                        <li><a href="#">Warranty Reports</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-1-2">
+                                    <ul class="bulleted thin-list clear-bottom">
+                                        <li><a href="#">John Deere Reman</li> </a>
+                                        <li><a href="#">JDM Direct Ship</li> </a>
+                                        <li><a href="#">Parts OnSite</li> </a>
+                                        <li><a href="#">Product Videos</li> </a>
+                                        <li><a href="#">Promotional Calendar</li> </a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="push"></div>
+    </div>
+    <div class="footer">
+        <div class="wrapper-container">
+            <span class="footer-links"><a href="#">Home</a> | <a href="#">Feedback</a> | <a href="#">Help</a> | <a href="#">FAQs</a> | <a href="#">Training</a></span>
+            <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#">Privacy &amp; Data</a> | <a href="https://www.deere.com/wps/dcom/en_US/footer/legal.page">Legal</a> </span>
+        </div>
+    </div>
+</body>
+</html>

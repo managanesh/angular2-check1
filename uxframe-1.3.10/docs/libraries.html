@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" class="jd ux-site">
+<head>
+    <!-- Use to emulate IE8 properly for testing -->
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"> -->
+    <!-- End IE8 emulation tag -->
+    <meta charset="UTF-8">
+    <title>Documentation | UXFrame</title>
+
+    <script src="../lib/d3/d3.min.js"></script>
+    <link rel="stylesheet" href="../lib/nvd3/nv.d3.min.css">
+    <script src="../lib/nvd3/nv.d3.min.js"></script>
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <script src="../lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../lib/jquery-validate/jquery.validate.additional-methods.min.js"></script>
+    <script src="../lib/datatables/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="../js/uxframe-1.3.10.js"></script>
+    <link rel="stylesheet" href="../css/uxframe-1.3.10.min.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="custom.css">
+
+</head>
+<body class='ag'>
+    <div id="popup-background" onclick="toggleUserInfo();"></div>
+    <div id="searchPopupBackground" onclick="toggleSearchDropdown();"></div>
+    <div id="button-popup-background"></div>
+    <div id="modal-dimmer"></div>
+    <div class="wrapper-all-except-footer center-footer">
+        <div class="header no-top-nav">
+            <div class="wrapper-container">
+                <h1><a href="#">UXFrame</a></h1>
+                <div class="logo" title="John Deere Logo">&nbsp;</div>
+                <div class="user-info">Version 1.3.10</div>
+            </div>
+            <div class="brandbar-top"></div>
+            <div class="brandbar-bottom"></div>
+        </div>
+    <div class="wrapper-container">
+        <div class="row">
+            <div class="col-1-6">
+                <div id="fixed-panel" class="nav-left thin-child loaded flat">
+                    <ul>
+                        <li><a href="../index.html">Getting Started</a> </li>
+                        <li><a href="documentation.html">Documentation</a> </li>
+                        <li class="selected"><a href="libraries.html">Libraries</a></li>
+                        <li><a href="examples.html">Examples</a></li>
+                    </ul>
+                </div>
+                <div id="fixed-spacer" class="panel"></div>
+            </div>
+            <div class="col-5-6">
+                <h2>Libraries</h2>
+                <div class="panel">
+                    <p>
+                        As part of the UXFrame distribution, we have included a growing set of 
+                        open source libraries that are frequently used in web application 
+                        development. None of these are a necessary part of the core UXFrame
+                        functionality, but bring additional functionality that may be helpful
+                        in certain circumstances. We hope to expand the number of libraries 
+                        included in the near future, so make sure to keep updated to the most 
+                        recent version.
+                    </p>
+                    <p>
+                        All of the Open Source Software (OSS) components included in UXFrame
+                        have been reviewed and approved for use by the 
+                        <a href="http://share.deere.com/knowledge/OSS_Governance/SitePages/HomePage.aspx">
+                            Enterprise Open Source Team
+                        </a>.
+                        Please <a href="mailto:OpenSourceReviewTeam@JohnDeere.com?subject=UXFrame%20OSS%20Question">
+                            contact them directly
+                        </a> to address any additional questions regarding OSS licensing or 
+                        distribution.
+                    </p>
+                    <p class="last">
+                        The <code>lib/</code> directory contains minified versions of 
+                        included libraries (including copyright information) as well as 
+                        the related license files. To remain compliant with OSS license
+                        obligations, <i>do not</i> minify, obfuscate, or delete license text files
+                        included in our downloads.
+                    </p>
+                </div>
+                <div class="panel" id="JQuery">
+                    <div class="layout-inline">
+                        <div class="layout-inline-item">
+                            <div class="h3"> JQuery 1.11.3 </div>
+                        </div>
+                        <div class="right-algin text-right layout-inline-item">
+                            <h5>
+                                <a href="../lib/license/jquery.MIT-LICENSE.txt">License</a> - 
+                                <a href="https://jquery.com">Project</a>
+                            </h5>
+                        </div>
+                    </div>
+                    <p>
+                        JQuery is a widely used JavaScript library which provides standard
+                        methods for DOM manipulation, event handling, or Ajax. Many other
+                        libraries have dependencies on JQuery.
+                    </p>
+                    <h6>Associated Files Files:</h6>
+                    <ul class="bulleted thin-list indented clear-bottom">
+                        <li><code>jquery.min.js</code></li>
+                        <li><code>jquery.MIT-LICENSE.txt</code></li>
+                    </ul>
+
+                </div>
+                <div class="panel" id="JQuery_Validate">
+                    <div class="layout-inline">
+                        <div class="layout-inline-item">
+                            <div class="h3">JQuery Validate 1.14.0
+                            </div>
+                        </div>
+                        <div class="right-algin text-right layout-inline-item">
+                            <div class="h5">
+                                <a href="../lib/license/jquery.validate.MIT-LICENSE.txt">License</a> - 
+                                <a href="http://jqueryvalidation.org/">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                        JQuery Validate is a basic form validation plugin. We provided
+                        the appropriate CSS on UXFrame form elements. Custom JavaScript
+                        is needed on a per-form basis to correctly validate user entry.
+                        Please note that this validation is purely for front-end experience
+                        and does not stand in for back-end validation. It would still
+                        be possible for a user to manually send a POST request with 
+                        incorrectly formatted data. In this case, it would be expected
+                        that the back-end would reject the request and reprompt the user.
+
+                    </p>
+                    <h6>Associated Files Files:</h6>
+                    <ul class="bulleted thin-list indented ">
+                        <li><code>jquery.validate.min.js</code></li>
+                        <li><code>jquery.validate.additional-methods.min.js</code></li>
+                        <li><code>jquery.validate.MIT-LICENSE.txt</code></li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-1-2">
+                            <pre id="panels-code" style="height:300px;" class="prettyprint lang-html"></pre>
+                        </div>
+                        <div class="col-1-2">
+                            <div id="panels-disp" class="white page-show demo">
+                                <form id="basicForm" action="">
+                                <div class="row">
+                                    <div class="col-1-2">
+                                        <div class="input-box">
+                                            <label for="title">Title</label>
+                                            <select name="Title" id="title">
+                                                <option selected disabled hidden value=''></option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
+                                                <option value="Ms">Ms</option>
+                                                <option value="Dr">Dr</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label for="first">First Name<span class="req"></span></label>
+                                            <input name="first_name" class="" type="text">
+                                        </div>
+                                        <div class="input-box">
+                                            <label for="phone">Phone</label>
+                                            <input class="clear-bottom" type="text" name="phone">
+                                            <p class="help-block">Ex. (XXX) XXX-XXXX</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-1-2">
+                                        <div class="input-box">
+                                            <label for="email1">Email Address<span class="req"></span></label>
+                                            <input id="email1" name="email1" class="" type="text" />
+                                        </div>
+
+                                        <div class="input-box">
+                                            <label for="email2">Confirm Email Address<span class="req"></span></label>
+                                            <input id="email2" name="email2" class="" type="text" />
+                                        </div>
+                                        <div class="input-box">
+                                            <label for="username">Username<span class="req"></span></label>
+                                            <input name="username" class="" type="text" />
+                                        </div>
+                                        <div class="input-box">
+                                            <button type="submit" class="submit right-align call-to-action">Submit</button>
+                                        </div>
+                                    </div>
+                                    <script>
+                                    $().ready(function() {
+                                        $("#basicForm").validate({
+                                            rules: {
+                                                
+                                                first_name: {
+                                                    required: true,
+                                                    minlength: 2
+                                                },
+                                                
+                                                phone: {
+                                                    required: false,
+                                                    phoneUS: true
+                                                },
+                                                email1: {
+                                                    required: true,
+                                                    email: true
+                                                },
+                                                email2: {
+                                                    required: true,
+                                                    email: true,
+                                                    equalTo: "#email1"
+                                                },
+                                                username: {
+                                                    required: true,
+                                                    minlength:2,
+                                                    maxlength: 15,
+
+                                                }
+                                            }
+
+                                        });
+
+                                    });
+                                    </script>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" id="data-tables">
+                    <div class="layout-inline">
+                        <div class="layout-inline-item">
+                            <div class="h3">DataTables 1.10.10
+                            </div>
+                        </div>
+                        <div class="right-algin text-right layout-inline-item">
+                            <div class="h5">
+                                <a href="../lib/license/datatables.MIT-LICENSE.txt">License</a> - 
+                                <a href="http://www.datatables.net/">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                    DataTables is a JQuery plugin which adds additional functionality
+                    to basic HTML tables including sorting, pagination, and filtering.
+                    Additionally, plugins provided on the DataTables home page can provide
+                    a large amount of additional functionality. A large amount of documentation
+                    and examples can be used to implement more advanced featuers of this project.
+                    </p>
+                    <h6>Associated Files Files:</h6>
+                    <ul class="bulleted thin-list indented">
+                        <li><code>jquery.dataTables.min.js</code></li>
+                        <li><code>datatables.MIT-LICENSE.txt</code></li>
+                    </ul>
+                    <pre id="tables-code" style="height:300px;" class="prettyprint lang-html"></pre>
+                    <div id="tables-disp" class="page-show demo clear-bottom">
+                        <div class="panel">
+                            <table id="example" class="dataTable display" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Age</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Office</th>
+                                        <th>Age</th>
+                                        <th>Start date</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>Edinburgh</td>
+                                        <td>61</td>
+                                        <td>2011/04/25</td>
+                                        <td>$320,800</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>63</td>
+                                        <td>2011/07/25</td>
+                                        <td>$170,750</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>Junior Technical Author</td>
+                                        <td>San Francisco</td>
+                                        <td>66</td>
+                                        <td>2009/01/12</td>
+                                        <td>$86,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>Senior Javascript Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>22</td>
+                                        <td>2012/03/29</td>
+                                        <td>$433,060</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airi Satou</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>33</td>
+                                        <td>2008/11/28</td>
+                                        <td>$162,700</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brielle Williamson</td>
+                                        <td>Integration Specialist</td>
+                                        <td>New York</td>
+                                        <td>61</td>
+                                        <td>2012/12/02</td>
+                                        <td>$372,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Herrod Chandler</td>
+                                        <td>Sales Assistant</td>
+                                        <td>San Francisco</td>
+                                        <td>59</td>
+                                        <td>2012/08/06</td>
+                                        <td>$137,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rhona Davidson</td>
+                                        <td>Integration Specialist</td>
+                                        <td>Tokyo</td>
+                                        <td>55</td>
+                                        <td>2010/10/14</td>
+                                        <td>$327,900</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colleen Hurst</td>
+                                        <td>Javascript Developer</td>
+                                        <td>San Francisco</td>
+                                        <td>39</td>
+                                        <td>2009/09/15</td>
+                                        <td>$205,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sonya Frost</td>
+                                        <td>Software Engineer</td>
+                                        <td>Edinburgh</td>
+                                        <td>23</td>
+                                        <td>2008/12/13</td>
+                                        <td>$103,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jena Gaines</td>
+                                        <td>Office Manager</td>
+                                        <td>London</td>
+                                        <td>30</td>
+                                        <td>2008/12/19</td>
+                                        <td>$90,560</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quinn Flynn</td>
+                                        <td>Support Lead</td>
+                                        <td>Edinburgh</td>
+                                        <td>22</td>
+                                        <td>2013/03/03</td>
+                                        <td>$342,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Charde Marshall</td>
+                                        <td>Regional Director</td>
+                                        <td>San Francisco</td>
+                                        <td>36</td>
+                                        <td>2008/10/16</td>
+                                        <td>$470,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Haley Kennedy</td>
+                                        <td>Senior Marketing Designer</td>
+                                        <td>London</td>
+                                        <td>43</td>
+                                        <td>2012/12/18</td>
+                                        <td>$313,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tatyana Fitzpatrick</td>
+                                        <td>Regional Director</td>
+                                        <td>London</td>
+                                        <td>19</td>
+                                        <td>2010/03/17</td>
+                                        <td>$385,750</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michael Silva</td>
+                                        <td>Marketing Designer</td>
+                                        <td>London</td>
+                                        <td>66</td>
+                                        <td>2012/11/27</td>
+                                        <td>$198,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Paul Byrd</td>
+                                        <td>Chief Financial Officer (CFO)</td>
+                                        <td>New York</td>
+                                        <td>64</td>
+                                        <td>2010/06/09</td>
+                                        <td>$725,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gloria Little</td>
+                                        <td>Systems Administrator</td>
+                                        <td>New York</td>
+                                        <td>59</td>
+                                        <td>2009/04/10</td>
+                                        <td>$237,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bradley Greer</td>
+                                        <td>Software Engineer</td>
+                                        <td>London</td>
+                                        <td>41</td>
+                                        <td>2012/10/13</td>
+                                        <td>$132,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dai Rios</td>
+                                        <td>Personnel Lead</td>
+                                        <td>Edinburgh</td>
+                                        <td>35</td>
+                                        <td>2012/09/26</td>
+                                        <td>$217,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jenette Caldwell</td>
+                                        <td>Development Lead</td>
+                                        <td>New York</td>
+                                        <td>30</td>
+                                        <td>2011/09/03</td>
+                                        <td>$345,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yuri Berry</td>
+                                        <td>Chief Marketing Officer (CMO)</td>
+                                        <td>New York</td>
+                                        <td>40</td>
+                                        <td>2009/06/25</td>
+                                        <td>$675,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Caesar Vance</td>
+                                        <td>Pre-Sales Support</td>
+                                        <td>New York</td>
+                                        <td>21</td>
+                                        <td>2011/12/12</td>
+                                        <td>$106,450</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doris Wilder</td>
+                                        <td>Sales Assistant</td>
+                                        <td>Sidney</td>
+                                        <td>23</td>
+                                        <td>2010/09/20</td>
+                                        <td>$85,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Angelica Ramos</td>
+                                        <td>Chief Executive Officer (CEO)</td>
+                                        <td>London</td>
+                                        <td>47</td>
+                                        <td>2009/10/09</td>
+                                        <td>$1,200,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gavin Joyce</td>
+                                        <td>Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>42</td>
+                                        <td>2010/12/22</td>
+                                        <td>$92,575</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jennifer Chang</td>
+                                        <td>Regional Director</td>
+                                        <td>Singapore</td>
+                                        <td>28</td>
+                                        <td>2010/11/14</td>
+                                        <td>$357,650</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Brenden Wagner</td>
+                                        <td>Software Engineer</td>
+                                        <td>San Francisco</td>
+                                        <td>28</td>
+                                        <td>2011/06/07</td>
+                                        <td>$206,850</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fiona Green</td>
+                                        <td>Chief Operating Officer (COO)</td>
+                                        <td>San Francisco</td>
+                                        <td>48</td>
+                                        <td>2010/03/11</td>
+                                        <td>$850,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shou Itou</td>
+                                        <td>Regional Marketing</td>
+                                        <td>Tokyo</td>
+                                        <td>20</td>
+                                        <td>2011/08/14</td>
+                                        <td>$163,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michelle House</td>
+                                        <td>Integration Specialist</td>
+                                        <td>Sidney</td>
+                                        <td>37</td>
+                                        <td>2011/06/02</td>
+                                        <td>$95,400</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Suki Burks</td>
+                                        <td>Developer</td>
+                                        <td>London</td>
+                                        <td>53</td>
+                                        <td>2009/10/22</td>
+                                        <td>$114,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prescott Bartlett</td>
+                                        <td>Technical Author</td>
+                                        <td>London</td>
+                                        <td>27</td>
+                                        <td>2011/05/07</td>
+                                        <td>$145,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gavin Cortez</td>
+                                        <td>Team Leader</td>
+                                        <td>San Francisco</td>
+                                        <td>22</td>
+                                        <td>2008/10/26</td>
+                                        <td>$235,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Martena Mccray</td>
+                                        <td>Post-Sales support</td>
+                                        <td>Edinburgh</td>
+                                        <td>46</td>
+                                        <td>2011/03/09</td>
+                                        <td>$324,050</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Unity Butler</td>
+                                        <td>Marketing Designer</td>
+                                        <td>San Francisco</td>
+                                        <td>47</td>
+                                        <td>2009/12/09</td>
+                                        <td>$85,675</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Howard Hatfield</td>
+                                        <td>Office Manager</td>
+                                        <td>San Francisco</td>
+                                        <td>51</td>
+                                        <td>2008/12/16</td>
+                                        <td>$164,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hope Fuentes</td>
+                                        <td>Secretary</td>
+                                        <td>San Francisco</td>
+                                        <td>41</td>
+                                        <td>2010/02/12</td>
+                                        <td>$109,850</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vivian Harrell</td>
+                                        <td>Financial Controller</td>
+                                        <td>San Francisco</td>
+                                        <td>62</td>
+                                        <td>2009/02/14</td>
+                                        <td>$452,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Timothy Mooney</td>
+                                        <td>Office Manager</td>
+                                        <td>London</td>
+                                        <td>37</td>
+                                        <td>2008/12/11</td>
+                                        <td>$136,200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jackson Bradshaw</td>
+                                        <td>Director</td>
+                                        <td>New York</td>
+                                        <td>65</td>
+                                        <td>2008/09/26</td>
+                                        <td>$645,750</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Olivia Liang</td>
+                                        <td>Support Engineer</td>
+                                        <td>Singapore</td>
+                                        <td>64</td>
+                                        <td>2011/02/03</td>
+                                        <td>$234,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bruno Nash</td>
+                                        <td>Software Engineer</td>
+                                        <td>London</td>
+                                        <td>38</td>
+                                        <td>2011/05/03</td>
+                                        <td>$163,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sakura Yamamoto</td>
+                                        <td>Support Engineer</td>
+                                        <td>Tokyo</td>
+                                        <td>37</td>
+                                        <td>2009/08/19</td>
+                                        <td>$139,575</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thor Walton</td>
+                                        <td>Developer</td>
+                                        <td>New York</td>
+                                        <td>61</td>
+                                        <td>2013/08/11</td>
+                                        <td>$98,540</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Finn Camacho</td>
+                                        <td>Support Engineer</td>
+                                        <td>San Francisco</td>
+                                        <td>47</td>
+                                        <td>2009/07/07</td>
+                                        <td>$87,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Serge Baldwin</td>
+                                        <td>Data Coordinator</td>
+                                        <td>Singapore</td>
+                                        <td>64</td>
+                                        <td>2012/04/09</td>
+                                        <td>$138,575</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zenaida Frank</td>
+                                        <td>Software Engineer</td>
+                                        <td>New York</td>
+                                        <td>63</td>
+                                        <td>2010/01/04</td>
+                                        <td>$125,250</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zorita Serrano</td>
+                                        <td>Software Engineer</td>
+                                        <td>San Francisco</td>
+                                        <td>56</td>
+                                        <td>2012/06/01</td>
+                                        <td>$115,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jennifer Acosta</td>
+                                        <td>Junior Javascript Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>43</td>
+                                        <td>2013/02/01</td>
+                                        <td>$75,650</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cara Stevens</td>
+                                        <td>Sales Assistant</td>
+                                        <td>New York</td>
+                                        <td>46</td>
+                                        <td>2011/12/06</td>
+                                        <td>$145,600</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hermione Butler</td>
+                                        <td>Regional Director</td>
+                                        <td>London</td>
+                                        <td>47</td>
+                                        <td>2011/03/21</td>
+                                        <td>$356,250</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lael Greer</td>
+                                        <td>Systems Administrator</td>
+                                        <td>London</td>
+                                        <td>21</td>
+                                        <td>2009/02/27</td>
+                                        <td>$103,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonas Alexander</td>
+                                        <td>Developer</td>
+                                        <td>San Francisco</td>
+                                        <td>30</td>
+                                        <td>2010/07/14</td>
+                                        <td>$86,500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shad Decker</td>
+                                        <td>Regional Director</td>
+                                        <td>Edinburgh</td>
+                                        <td>51</td>
+                                        <td>2008/11/13</td>
+                                        <td>$183,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michael Bruce</td>
+                                        <td>Javascript Developer</td>
+                                        <td>Singapore</td>
+                                        <td>29</td>
+                                        <td>2011/06/27</td>
+                                        <td>$183,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Donna Snider</td>
+                                        <td>Customer Support</td>
+                                        <td>New York</td>
+                                        <td>27</td>
+                                        <td>2011/01/25</td>
+                                        <td>$112,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <script>
+                            $(document).ready( function () {
+                                $('#example').DataTable( {
+                                    "columnDefs": [
+                                        // http://datatables.net/reference/option/columns.orderSequence
+                                        // Set the order sequence for columns
+                                        {"orderSequence": ["desc", "asc"] , "targets": [0,1,2,3,4,5]},
+                                        { className: "dt-left",  "targets": [ 0, 1, 2]},
+                                        { className: "dt-right", "targets": [ 3, 4, 5]}
+                                    ],
+                                    "aaSorting": [ ],
+                                } );
+                            } );
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel" id="D3">
+                    <div class="layout-inline">
+                        <div class="layout-inline-item">
+                            <div class="h3">D3.js 3.5.12
+                            </div>
+                        </div>
+                        <div class="right-algin text-right layout-inline-item">
+                            <div class="h5">
+                                <a href="../lib/license/d3.LICENSE.txt">License</a> - 
+                                <a href="http://d3js.org/">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                    D3.js is a popular JavaScript library for manipulating page
+                    elements based on data. Frequently this is used to generate
+                    charts, graphs, or other data visualizations. The library 
+                    particularly excels at interactive visualizations.
+                    </p>
+                    <h6>Associated Files Files:</h6>
+                    <ul class="bulleted thin-list indented clear-bottom">
+                        <li><code>d3.min.js</code></li>
+                        <li><code>d3.LICENSE.txt</code></li>
+                    </ul>
+                </div>
+                <div class="panel" id="NVD3">
+                    <div class="layout-inline">
+                        <div class="layout-inline-item">
+                            <div class="h3">NVD3.js 1.8.1
+                            </div>
+                        </div>
+                        <div class="right-algin text-right layout-inline-item">
+                            <div class="h5">
+                                <a href="../lib/license/nvd3.LICENSE.txt">License</a> - 
+                                <a href="http://nvd3.org/">Project</a>
+                            </div>
+                        </div>
+                    </div>
+                    <p>
+                    NVD3.js is a helper library for use with D3.js. It provides a
+                    set of ready-to-use charts and basic drawing functions. This 
+                    can be helpful to use in lieu of the underlying drawing library.
+                    We provide additional wrappers around three of these chart types 
+                    to match our design standards.
+                    </p>
+                    <h6>Associated Files Files:</h6>
+                    <ul class="bulleted thin-list indented ">
+                        <li><code>nvd3.min.js</code></li>
+                        <li><code>nvd3.min.css</code></li>
+                        <li><code>nvd3.LICENSE.txt</code></li>
+                    </ul>
+                    <pre id="charts-code" style="height:300px;" class="prettyprint lang-html"></pre>
+                    <div id="charts-disp" class="page-show demo">
+                        <div class="row">
+                            <div class="col-1-1">
+                                <div class="panel">
+                                    <svg id="chart1" style="height: 200px;"></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2-5">
+                                <div class="panel clear-bottom">
+                                    <svg id="chart2" style="height: 200px;"></svg>
+                                </div>
+                            </div>
+                            <div class="col-3-5">
+                                <div class="panel clear-bottom">
+                                    <svg id="chart3" style="height: 200px;"></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                        var l1 = $UXF.Charts('chart1').Line(lineChartData, function(){ 
+                            this.xAxis
+                                .axisLabel('Time (ms)')
+                                .tickFormat(d3.format(',r'));
+                            this.yAxis
+                                .axisLabel('Voltage (v)')
+                                .tickFormat(d3.format('.02f'));
+                        });
+
+                        // Shows how to use a generator to return continuous data.
+                        function lineChartData() {
+                          var sin = [],sin2 = [],
+                              cos = [];
+                          //Data is represented as an array of {x,y} pairs.
+                          for (var i = 0; i < 100; i++) {
+                            sin.push({x: i, y: Math.sin(i/10)});
+                            sin2.push({x: i, y: Math.sin(i/10) *0.25 + 0.5});
+                            cos.push({x: i, y: .5 * Math.cos(i/10)});
+                          }
+
+                          //Line chart data should be sent as an array of series objects.
+                          return [
+                            {
+                              values: sin,      //values - represents the array of {x,y} data points
+                              key: 'Sine Wave', //key  - the name of the series.
+                            },
+                            {
+                              values: cos,
+                              key: 'Cosine Wave',
+                            },
+                            {
+                              values: sin2,
+                              key: 'Another sine wave',
+                            }
+                          ];
+                        }
+                        var b1 = $UXF.Charts('chart2').Bar(barChartData);
+                        function barChartData() {
+                         return  [
+                            {
+                              key: "Cumulative Return",
+                              values: [
+                                {
+                                  "label" : "A" ,
+                                  "value" : -29.765957771107
+                                } ,
+                                {
+                                  "label" : "B" ,
+                                  "value" : 101
+                                } ,
+                                {
+                                  "label" : "C" ,
+                                  "value" : 32.807804682612
+                                } ,
+                                {
+                                  "label" : "D" ,
+                                  "value" : 196.45946739256
+                                } ,
+                                {
+                                  "label" : "E" ,
+                                  "value" : 32.19434030906893
+                                } ,
+                                {
+                                  "label" : "F" ,
+                                  "value" : -98.079782601442
+                                } ,
+                                {
+                                  "label" : "G" ,
+                                  "value" : -13.925743130903
+                                } ,
+                                {
+                                  "label" : "H" ,
+                                  "value" : -5.1387322875705
+                                }
+                              ]
+                            }
+                          ]
+
+                        }
+                        var g1 = $UXF.Charts('chart3').Pie(pieChartData, function(){
+                            this.legendPosition("right");
+                            this.margin({top: 0, right: 15, bottom: 15, left: 15});
+                        });
+                        function pieChartData() {
+                          return  [
+                              {
+                                "label": "Daily Operating Costs",
+                                "value" : 196.45946739256
+                              } ,
+                              {
+                                "label": "Executive Travel",
+                                "value" : 98.079782601442
+                              } ,
+                              {
+                                "label": "Contractor Work",
+                                "value" : 32.807804682612
+                              } ,
+                              {
+                                "label": "Snacks",
+                                "value" : 29.765957771107
+                              } ,
+                              {
+                                "label": "Hardware Upgrades",
+                                "value" : 13.925743130903
+                              } ,
+                              {
+                                "label": "Liability Insurance",
+                                "value" : 5.1387322875705
+                              },
+                              {
+                                "label": "Taxes",
+                                "value" : 0.19434030906893
+                              } ,
+                            ];
+                        }
+                        </script>
+                    </div>
+
+                </div>
+            </div> <!-- main col-->
+        </div>
+
+
+
+    </div> <!-- End main wrapper-container -->
+    <div class="push"></div>
+    </div>
+    <div class="footer center-footer">
+        <div class="wrapper-container">
+            <span class="footer-links"><a href="#">Home</a> | <a href="#">Feedback</a> | <a href="#">Help</a> | <a href="#">FAQs</a> | <a href="#">Training</a></span>
+            <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company. All Rights Reserved.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Privacy &amp; Data</a> | <a href="https://www.deere.com/wps/dcom/en_US/footer/legal.page">Legal</a> </span>
+        </div>
+    </div>
+    <script>
+        // http://stackoverflow.com/questions/6234773/can-i-escape-html-special-chars-in-javascript
+        function escapeHtml(unsafe) {
+            return unsafe
+                 .replace(/&/g, "&amp;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/'/g, "&#039;");
+         }
+        var disp_areas = document.querySelectorAll("div.demo");
+        for ( i = 0; i < disp_areas.length; i++ ) {
+            var id = disp_areas[i].id;
+            var content = escapeHtml(disp_areas[i].innerHTML).split('\n').slice(1);
+
+            var space_amnt = content[0].search(/\S/);
+
+            for ( x = 0; x < content.length; x++ ) {
+                content[x] = content[x].slice(space_amnt);
+
+            }
+
+            var code_id = id.split('-')[0].concat('-code');
+            var code_element = document.getElementById(code_id);
+            code_element.innerHTML = content.slice(0, content.length-1).join('\n');
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<div *ngIf="isRequesting == true"> <img style="position: absolute;top: 50%;left: 50%; margin-right: 50%;transform: translate(-50%,-50%)" src="uxframe-1.3.10/img/loading.xsmall.gif"></div>
+<div *ngIf="isRequesting == false" class="wrapper-container">
+
+    <div class="panel clear-panel">
+        <div class="layout-inline">
+            <div class="layout-inline-item">
+                <select [(ngModel)]="category">
+                    <option *ngFor="#cat of categories"
+                            [value]="cat.code" [selected]="cat.code =='ALL'">{{cat.value}}</option>
+
+                   <!-- <option selected value="All">All Categories</option>
+                    <option value="M">Machines</option>
+                    <option value="PC">Terminals</option>
+                    <option value="Other">Organizations</option>-->
+                </select>
+            </div>
+            <div style="width:73%" class="layout-inline-item">
+                <div class="input-box">
+                    <input type="text" value=""
+                           [class.show-label]="showLabel"
+                           (keyup)="toggleInputLabel()"
+                           (blur)="toggleInputLabel()"
+                           [(ngModel)]="search">
+                    <div class="input-label">
+                        Org #,Terminal Serial,PIN/VIN, Terminal #,Machine,Machine DMC,Org Name
+                    </div>
+                </div>
+            </div>
+            <div class="layout-inline-item">
+                <button class="call-to-action" (click)="onSearch(category.value)">Search</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,143 @@
+<div *ngIf="isRequesting == true"> <img style="position: absolute;top: 50%;left: 50%; margin-right: 50%;transform: translate(-50%,-50%)" src="uxframe-1.3.10/img/loading.xsmall.gif"></div>
+<div  *ngIf="isRequesting == false" class="wrapper-container">
+
+<div class="layout-inline bottom-align">
+        <div class="layout-inline-item">
+            <h2>{#TODO}</h2>
+        </div>
+        <div class="layout-inline-item right-align">
+            <div id="sorting-dropdown" class="dropdown-container button-style">
+                <span class="secondary-info">Sort By: </span>
+                <button id="dd2" class="dropdown invis">Most Recent</button>
+                <!-- <span class="chevron">&nbsp;</span> -->
+                <div id="dd2Menu" class="dropdown-menu narrow">
+                    <ul>
+                        <li><a href="#">Lowest Price</a></li>
+                        <li><a href="#">Highest Price</a></li>
+                        <li><a href="#">Most Relevant</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="joined-panels">
+        <div class="panel">
+            <div id="filter-input-box show-label" class="input-box filter clear-bottom">
+                <input type="text">
+                <div class="input-label">
+                    Filter {#TODO}
+                </div>
+            </div>
+        </div>
+        <div class="panel query-result"
+            *ngFor="#detail of details"  >
+            <h4><a>{{detail.equipID}}</a></h4>
+
+        </div>
+        <div class="panel query-result" onclick="$UXF.Modal('mymodal').toggle()"
+                            >
+            <h4><a>1DW2ERF234567123</a></h4>
+            <div class="row">
+                <div class="col-1-5">
+                    <div class="description-pair">
+                        <div class="left-content">ID:</div>
+                        <div class="right-content">15385</div>
+                    </div>
+                </div>
+                <div class="col-2-5">
+                    <div class="description-pair">
+                        <div class="left-content">Organization:</div>
+                        <div class="right-content">Dealer Org</div>
+                    </div>
+                </div>
+                <div class="col-1-5">
+                    <div class="description-pair">
+                        <div class="left-content">Status:</div>
+                        <div class="right-content">Registered</div>
+                    </div>
+                </div>
+                <div class="col-1-5">
+                    <div class="dropdown-container button-style">
+                        <button id="dd3" class="dropdown invis">Related</button>
+                        <!-- <span class="chevron">&nbsp;</span> -->
+                        <div id="dd3" class="dropdown-menu ">
+                            <h5> Related Items</h5>
+                            <dl class="horizontal thin-list wide clear-bottom">
+                                <dt>Project</dt>
+                                <dd><a href="">392921</a></dd>
+                                <dt>Project</dt>
+                                <dd><a href="">201232</a></dd>
+                                <dt>Event</dt>
+                                <dd><a href="">951122</a></dd>
+                                <dt>Resource</dt>
+                                <dd><a href="">847363</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="panel query-result" onclick="$UXF.Modal('mymodal').toggle()">
+            <h4><a>1DW2ERF234567123</a></h4>
+            <div class="row">
+                <div class="col-1-5">
+                    <div class="description-pair">
+                        <div class="left-content">ID:</div>
+                        <div class="right-content">15385</div>
+                    </div>
+                </div>
+                <div class="col-2-5">
+                    <div class="description-pair">
+                        <div class="left-content">Organization:</div>
+                        <div class="right-content">Dealer Org</div>
+                    </div>
+                </div>
+                <div class="col-1-5">
+                    <div class="description-pair">
+                        <div class="left-content">Status:</div>
+                        <div class="right-content">Registered</div>
+                    </div>
+                </div>
+                <div class="col-1-5">
+                    <div class="dropdown-container button-style">
+                        <button id="dd3" class="dropdown invis">Related</button>
+                        <!-- <span class="chevron">&nbsp;</span> -->
+                        <div id="dd3" class="dropdown-menu ">
+                            <h5> Related Items</h5>
+                            <dl class="horizontal thin-list wide clear-bottom">
+                                <dt>Project</dt>
+                                <dd><a href="">392921</a></dd>
+                                <dt>Project</dt>
+                                <dd><a href="">201232</a></dd>
+                                <dt>Event</dt>
+                                <dd><a href="">951122</a></dd>
+                                <dt>Resource</dt>
+                                <dd><a href="">847363</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-1-1">
+            <div class="pagination traditional">
+                <p>1 of 439 Results</p>
+                <ul>
+                    <li class="selected first"><a>1</a></li>
+                    <li><a>2</a></li>
+                    <li><a>3</a></li>
+                    <li><a>4</a></li>
+                    <li><a>5</a></li>
+                    <li><a>6</a></li>
+                    <li class="next"><a><button>Next<span class="chevronRight">&nbsp;</span></button></a></li>
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>

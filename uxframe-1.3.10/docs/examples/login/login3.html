@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html class="jd" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Multi-Panel Example</title>
+    <link rel="stylesheet" href="../../../css/uxframe-1.3.10.min.css" media="all">
+    <link rel="shortcut icon" href="../../../img/favicon.ico" type="image/x-icon" />
+    <script src="../../../js/uxframe-1.3.10.min.js"></script>
+</head>
+<body>
+    <div id="button-popup-background"></div>
+    <div class="login">
+            <div class="login-header"></div>
+            <div class="login-area">
+                <div class="panel">
+                    <div class="login-content">
+                        <div class="login-topmatter">
+                            <div class="login-title">Welcome to John Deere</div>
+                        </div>
+                        <div class="input-box">
+                            <input class="no-search-icon" type="text" onkeyup="this.setAttribute('value', this.value);" value="" />
+                            <div class="input-label">
+                                Username
+                            </div>
+                        </div>
+                        <div class="input-box">
+                            <input class="no-search-icon" type="password" onkeyup="this.setAttribute('value', this.value);" value="" />
+                            <div class="input-label">
+                                Password
+                            </div>
+                        </div>
+                        <div class="error-message">Your password may need to be reset. Please navigate to My John Deere to complete the password reset process.</div>
+                        <div class="final-button layout-inline">
+                            <div class="layout-inline-item">
+                                <button class="call-to-action ">Sign In</button>
+                            </div>
+                        </div>
+                        <ul class="final-links">
+                            <li> <a href="#">Create Account</a> </li>
+                            <li> <a href="#">Forgot Password?</a> </li>
+                        </ul>
+                        <div class="text-center dropdown-container button-style">
+                            <button id="dd2" class="dropdown invis">English</button>
+                            <!-- <span class="chevron">&nbsp;</span> -->
+                            <div id="dd2Menu" class="text-left dropdown-menu narrow">
+                                <ul class=" thin-list ">
+                                    <li><a href="#">Latin</a></li>
+                                    <li><a href="#">Spanish</a></li>
+                                    <li><a href="#">German</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <div class="language-selector text-center">
+                            <div class="dropdown-container">
+                            <button id="dd2" class="dropdown invis light">English</button><span class="chevron">&nbsp;</span>
+                                <div id="dd2Menu" class="button-dropdown-menu">
+                                    <ul class="skinny">
+                                        <li><a href="#">English</a></li>
+                                        <li><a href="#">Latin</a></li>
+                                        <li><a href="#">Spanish</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+            <div class="login-area">
+                <div class="panel">
+                    <div class="login-content">
+                        <div class="login-topmatter">
+                            <div class="login-title">Password Requirements</div>
+                        </div>
+                        <div class="login-body clear-bottom">
+                            <p>
+                                To ensure a safe and secure password, you must...
+                            </p>
+                                <ul class="bulleted indented thin-list">
+                                    <li>be 8 characters in length</li>
+                                    <li>include at least one digit and one alphabet character</li>
+                                    <li>start with an alphabet character</li>
+                                    <li>include only digits and lower case alphabet characters (1, 2, 3, a, b, c)</li>
+                                    <li>not have the same first three characters (eg: AAA123)</li>
+                                    <li>be used only one time and never be reused</li>
+                                </ul>
+                            <p class="last">
+                                Please close any open applications except for this browser window when changing your password.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mini-footer">
+                <span class="footer-links"><a href="#">Privacy and Data</a> &nbsp;&#8226;&nbsp; <a href="#">Legal</a></span>
+                <span class="footer-legal">Copyright &copy; 2015 Deere &amp; Company.</span>
+                <span class="footer-legal">All Rights Reserved.</span>
+            </div>
+    </div>
+
+
+</body>
+</html>

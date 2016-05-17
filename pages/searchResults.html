@@ -1,0 +1,32 @@
+<div *ngIf="isRequesting == true"><img
+        style="position: absolute;top: 50%;left: 50%; margin-right: 50%;transform: translate(-50%,-50%)"
+        src="uxframe-1.3.10/img/loading.small.gif"></div>
+<div *ngIf="isRequesting == false" class="wrapper-container">`
+    <ul class="alert inprogress " [class.success]="countByCategory.length > 0">
+
+        <li> {{+message}} {{searchKey}}</li>
+
+    </ul>
+    <div class="row">
+        <div class="col-1-1">
+            <a href="javascript:void(0);"
+               *ngFor="#countCat of countByCategory"
+               (click)="loadFullResults(countCat.method)">
+
+                <div class="panel count-panel">
+                    <div class="count">{{countCat.count}}</div>
+                    <div class="text">
+                        <div class="main-title">{{countCat.category}}</div>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-1-1">
+            <div class="panel icon-panel" *ngIf="requestStack.length> 0">
+                <img src="uxframe-1.3.10/img/loading.xsmall.gif">
+            </div>
+        </div>
+
+    </div>
+</div>
